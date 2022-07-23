@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="report_property_offer">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2>
+                            <u>
+                                <b>
+                                    <center>
+                                        RESERVA
+                                    </center>
+                                </b>
+                            </u>
+                        </h2>
+                        <p style="font-size: 22px" > 
+                            <span t-field="o.sales_person_id.company_id.name"/> , CUIT 
+                            <span t-field="o.sales_person_id.company_id.vat"/> , representada por 
+                            <span t-field="o.sales_person_id.name"/> con domicilio especial en 
+                            <span t-field="o.sales_person_id.street"/> de la ciudad 
+                            <span t-field="o.sales_person_id.city"/> de 
+                            <span t-field="o.sales_person_id.state_id"/> , constituyendo Domicilio Electrónico en su casilla de correo
+                            <span t-field="o.sales_person_id.email"/> , en adelante la "<u><b>inmobiliaria</b></u>", <b>RECIBE</b> 
+                            en este acto de parte de
+                            <span t-field="o.partner_id.name"/> , D.N.I N°
+                            <span t-field="o.partner_id.vat"/> CUIT N° 
+                            ___________________ , estado civil
+                            <span t-field="o.marital_status"/> , casado con 
+                            <span t-field="o.partner1_id.name"/> D.N.I N° 
+                            <span t-field="o.partner1_id.vat"/> , con domicilio en la calle
+
+                        </p>
+                        <p>This object's name is <span t-field="o.offer_number"/></p>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <template id="report_property_offerTest">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

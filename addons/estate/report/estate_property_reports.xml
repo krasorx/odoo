@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="report_property_offer" model="ir.actions.report">
+        <field name="name">Reserva de terreno</field>
+        <field name="model">property.offer</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">estate.report_property_offer</field>
+        <field name="report_file">estate.report_property_offer</field>
+        <field name="binding_model_id" ref="model_property_offer"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

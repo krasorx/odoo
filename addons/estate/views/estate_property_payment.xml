@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="property_payment_action" model="ir.actions.act_window">
+        <field name="name">Metodo de pago</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">property.payment</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No hay ninguna pago en proceso
+            </p>
+        </field>
+    </record>
+
+    <record id="view_estate_property_payment_tree" model="ir.ui.view">
+        <field name="name">estate.property.payment.tree</field>
+        <field name="model">property.payment</field>
+        <field name="arch" type="xml">
+            <tree string="Detalle">
+                <field name="date_of_reserve"/>
+                <field name="payment_method"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_estate_payment_form" model="ir.ui.view">
+        <field name="name">estate.property.payment.form</field>
+        <field name="model">property.payment</field>
+        <field name="arch" type="xml">
+            <form string="Metodo de pago">
+                <group>
+                    <field name="date_of_reserve"/>
+                    <field name="payment_method"/>
+                    <field name="property_id"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_estate_property_offer_tree" model="ir.ui.view">
+        <field name="name">estate.property.offer.tree</field>
+        <field name="model">property.offer</field>
+        <field name="arch" type="xml">
+            <tree string="Ofertas">
+                <field name="price"/>
+                <field name="sales_person_id"/>
+                <field name="partner_id"/>
+                <field name="property_id"/>
+                <field name="validity_days"/>
+                <field name="date_deadline"/>
+                <field name="status"/>
+                <field name="offer_number"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_estate_property_offer_form" model="ir.ui.view">
+        <field name="name">estate.property.offer.form</field>
+        <field name="model">property.offer</field>
+        <field name="arch" type="xml">
+            <form string="Oferta">
+                <header>
+                    <button name="button_payment_method" class="oe_highlight" states="reserva" string="modo de pago" type="object" help="Ir a pago"/>
+                    <button name="button_accept_offer" states="modo de pago" string="Conformar reserva" type="object" help="SOLO DESARROLLADORA"/>
+                    <button name="button_cancel_offer" states="modo de pago" string="Cancelar reserva" type="object" help="SOLO DESARROLLADORA"/>
+                    <button name="button_cancel_reserve_method" class="oe_highlight" states="nuevo" string="Cancelar" type="object" help="Cancelar reserva"/>
+                    <button name="button_save_reserve" states="modo de pago" class="oe_highlight" string="Imprimir reserva" type="object" help="Imprime la reserva"/>
+                    <field name="state" widget="statusbar" statusbar_visible="reserva,modo de pago,contrato,hecho" 
+                            options="{'clickable' : '1'}"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group> 
+                            <field name="price"/>
+                            <field name="validity_days"/>
+                            <field name="date_deadline"/>
+                        </group>
+                        <group>
+                            <field name="sales_person_id"/>
+
+                            <field name="partner_id"/>
+                            <field name="marital_status"/>
+                            <field name="partner1_id" attrs="{'readonly': [('marital_status', '!=', 'casado')]}"/>
+                            
+                            <field name="partner2_id"/>
+                            <field name="marital2_status"/>
+                            <field name="partner3_id" attrs="{'readonly' : [( ('marital2_status',  '!=', 'casado') )]}"/>
+                        </group>
+                        <notebook>
+                            <page string="Terrenos">
+                                <group>
+                                    <field name="property_id" widget="grouped_view_widget"/>
+                                    <field name="property_total_area"/>
+                                    <field name="property_state"/>
+                                    <button name="button_reserve_method" class="oe_highlight" states="reserva" string="Reservar propiedad" type="object" help="reservar"/>
+                                </group>
+                            </page>
+                            <page string="Modo de pago" 
+                            attrs="{'invisible':[ ('state', '!=', 'modo de pago' )]}">
+                                <group>
+                                    <field name="payment_method"/>
+                                    <field name="other_payment_method" 
+                                        attrs="{'invisible':[ ( 'payment_method', '!=', 'otra' ) ]}"/>
+                                </group>
+                            </page>
+                            <page string="Precios" 
+                                attrs="{'invisible':[ ( 'state', '!=', 'modo de pago' ) ]}">
+                                <group>
+                                    <field name="property_expected_price"/> 
+                                    <field name="property_price_reserve"/> 
+                                    <field name="property_price_reinforment_m9"/> 
+                                    <field name="property_price_reinforment_m18"/> 
+                                    <field name="property_price_balance"/> 
+                                    <field name="property_price_balance_usd"/> 
+                                    <field name="property_price_balance_pesos_cac"/> 
+                                    <field name="property_price_discount_55_reserve"/> 
+                                    <field name="property_price_discount_one_payment"/> 
+                                </group>
+                            </page>
+                        </notebook>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="property_offer_action" model="ir.actions.act_window">
+        <field name="name">Reservas</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">property.offer</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No hay ninguna reserva
+            </p>
+        </field>
+    </record>
+
+    <record id="view_property_offer_search" model="ir.ui.view">
+        <field name="name">property.offer.search</field>
+        <field name="model">property.offer</field>
+        <field name="arch" type="xml">
+            <search string="Busqueda">
+                <field name="status"/>
+                <field name="sales_person_id"/>
+                <field name="offer_number"/>
+                <field name="property_id"/>
+                <filter string="Disponible" name="status" domain="[('status', '=', 'pendiente')]"/>
+                <group expand="1" string="Group By">
+                        <filter string="Inmobiliaria" name="sales_person_id" context="{'group_by':'sales_person_id', 'residual_visible':True}"/>
+                        <filter string="Barrio" name="property_barrio" context="{'group_by':'property_barrio', 'residual_visible':True}"/>
+                        <filter string="Lote" name="property_Lote" context="{'group_by':'property_lote', 'residual_visible':True}"/>
+                        <filter string="Estado" name="status" context="{'group_by':'status', 'residual_visible':True}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+</odoo>

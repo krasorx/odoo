@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        
+
+    <record id="view_test_model_tree" model="ir.ui.view">
+        <field name="name">estate.test.model.tree</field>
+        <field name="model">test.model</field>
+        <field name="arch" type="xml">
+            <tree string="Tests">
+                <field name="name"/>
+                <field name="postcode"/>
+                <field name="lote"/>
+                <field name="living_area"/>
+                <field name="expected_price"/>
+                <field name="selling_price"/>
+                <field name="property_type_id"/>
+                <field name="sales_person_id"/>
+                <field name="buyer_id"/>
+                <field name="date_availability"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_test_model_form" model="ir.ui.view">
+        <field name="name">estate.test.model.form</field>
+        <field name="model">test.model</field>
+        <field name="arch" type="xml">
+            <form string="Propiedad">
+                <header>
+                    <button name="action_sell" type="object" string="VENDER" class="oe_highlight"/>
+                    <button name="action_cancel" type="object" string="CANCELAR" class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <div>
+                        <h1 class="mb32">
+                            <field name="name" />
+                        </h1>
+                        <h4>
+                            <field name="tag_ids" widget="many2many_tags" />
+                        </h4>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="postcode" />
+                            <field name="date_availability" />
+                            <field name="property_type_id" />
+                        </group>
+                        <group>
+                            <field name="expected_price" />
+                            <field name="selling_price" />
+                            <field name="best_price" />
+                        </group>
+
+                    </group>
+
+                    <notebook>
+                        <page string="Descripcion">
+                            <group>
+                                <field name="description" />
+                                <field name="state" readonly="1"/>
+                                <field name="lote" />
+                                <field name="barrio" />
+                                <field name="living_area" />
+                                <field name="state" />
+                                <field name="total_area" />
+                                <field name="expresed_value" />
+                            </group>
+                        </page>
+                        <page string="Ofertas">
+                            <group>
+                                <field name="offer_ids"/>
+                            </group>
+                        </page>
+                        <page string="Otra info">
+                            <group>
+                                <field name="sales_person_id" />
+                                <field name="buyer_id" />
+                            </group>
+                        </page>
+                        <page string="Planes de pago">
+                            <group>
+                                <field name="price_reserve"/> 
+                                <field name="price_reinforment_m9"/> 
+                                <field name="price_reinforment_m18"/> 
+                                <field name="price_balance"/> 
+                                <field name="price_balance_usd"/> 
+                                <field name="price_balance_pesos_cac"/> 
+                                <field name="price_discount_55_reserve"/> 
+                                <field name="price_discount_one_payment"/> 
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_test_model_search" model="ir.ui.view">
+        <field name="name">estate.test.model.search</field>
+        <field name="model">test.model</field>
+        <field name="arch" type="xml">
+            <search string="Tests">
+                <field name="name"/>
+                <field name="postcode"/>
+                <field name="expected_price"/>
+                <field name="lote"/>
+                <field name="living_area"/>
+                <field name="barrio"/>
+                <filter string="Disponible" name="state" domain="['|',('state', '=', 'nuevo'), 
+                                                                ('state', '=', 'canceled')
+                ]"/>
+                <group expand="1" string="Group By">
+                        <filter string="Código postal" name="postcode" context="{'group_by':'postcode', 'residual_visible':True}"/>
+                        <filter string="Lote" name="lote" context="{'group_by':'lote', 'residual_visible':True}"/>
+                        <filter string="Área" name="name" context="{'group_by':'name', 'residual_visible':True}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="test_model_action" model="ir.actions.act_window">
+        <field name="name">Propiedades</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">test.model</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crea el primer terreno
+            </p>
+        </field>
+    </record>
+
+    
+    
+
+</odoo>
