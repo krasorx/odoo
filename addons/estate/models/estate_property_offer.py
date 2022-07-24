@@ -5,7 +5,7 @@ class estate_property_offer(models.Model):
     _name = "property.offer"
     _description = "una oferta de compra a una propiedad."
 
-    price = fields.Float(string="Precio(usd)" , default=0.0)
+    price = fields.Float(string="Valor de anticipo(usd)" , default=1000.0)
     status = fields.Selection(
         string='Estado', selection=[('refused', 'Refused'), 
         ('accepted', 'Accepted'), ('pendiente', 'Pendiente')], help="Rechazado, Aceptado o pendiente",
@@ -21,7 +21,7 @@ class estate_property_offer(models.Model):
         string='Estado', selection=[('soltero', 'Soltero'), 
         ('casado', 'Casado')], help="Soltero o casado"
     )
-    date_of_reserve = fields.Date(string="Fecha de reserva", readonly=True,default=fields.Datetime.now() )
+    date_of_reserve = fields.Date(string="Fecha de reserva",default=fields.Datetime.now() )
     payment_method = fields.Selection(
         string='Forma de pago', selection=[
         ('contado', 'Contado'), 
@@ -42,6 +42,7 @@ class estate_property_offer(models.Model):
     sales_person_id = fields.Many2one('res.users', string='Inmobiliaria', index=True, 
                                 tracking=True, default=lambda self: self.env.user)
     offer_number = fields.Integer(string="Número de reserva", compute="_compute_reserve_number")
+    reserve_amount_percent = fields.Float(string="Porcentaje anticipo", compute="_compute_reserve_amount_percent", readonly=True )
     property_barrio = fields.Char(related="property_id.barrio", string="Barrio", default="backroom", store=True)
     property_lote = fields.Char(related="property_id.lote", string="Lote", store=True)
     property_description = fields.Text(related="property_id.description", string="Descripcion", store=True)
@@ -97,6 +98,14 @@ class estate_property_offer(models.Model):
         for record in self:
             record.offer_number = 501
     
+    # calculates de % of the total price that the customer pays with the reserve
+    @api.depends("reserve_amount_percent","property_expected_price", "price")
+    def _compute_reserve_amount_percent(self):
+        for record in self:
+            record.reserve_amount_percent = (
+                record.price * (100/record.property_expected_price)
+                )
+
     def button_payment_method(self):
         self.write({'state': "modo de pago"   })
 

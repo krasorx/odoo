@@ -38,6 +38,7 @@
                             <field name="price"/>
                             <field name="validity_days"/>
                             <field name="date_deadline"/>
+                            <field name="date_of_reserve"/>
                         </group>
                         <group>
                             <field name="sales_person_id"/>

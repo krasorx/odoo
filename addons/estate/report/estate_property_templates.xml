@@ -4,7 +4,7 @@
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="o">
                 <t t-call="web.external_layout">
-                    <div class="page">
+                    <div class="page" style="font-family:'Arial Narrow' font-size: 24px ">
                         <h2>
                             <u>
                                 <b>
@@ -14,7 +14,7 @@
                                 </b>
                             </u>
                         </h2>
-                        <p style="font-size: 22px" > 
+                        <p  > 
                             <span t-field="o.sales_person_id.company_id.name"/> , CUIT 
                             <span t-field="o.sales_person_id.company_id.vat"/> , representada por 
                             <span t-field="o.sales_person_id.name"/> con domicilio especial en 
@@ -25,13 +25,156 @@
                             en este acto de parte de
                             <span t-field="o.partner_id.name"/> , D.N.I N°
                             <span t-field="o.partner_id.vat"/> CUIT N° 
-                            ___________________ , estado civil
+                            <span t-field="o.partner_id.vat"/> , estado civil
                             <span t-field="o.marital_status"/> , casado con 
                             <span t-field="o.partner1_id.name"/> D.N.I N° 
-                            <span t-field="o.partner1_id.vat"/> , con domicilio en la calle
-
+                            <span t-field="o.partner_id.vat"/> , con domicilio en la calle
+                            <span t-field="o.partner_id.street"/> , de la localidad de 
+                            <span t-field="o.partner_id.city"/> , Partido de 
+                            <span t-field="o.partner_id.city"/> , 
+                            <span t-field="o.partner_id.state_id"/>, constituyendo su Domicilio Electrónico
+                            en su casilla de correo 
+                            <span t-field="o.partner_id.email"/> , Teléfono
+                            <span t-field="o.partner_id.phone"/> , en un
+                            <span t-field="o.reserve_amount_percent"/>% (en adelante el "<u><b>comprador</b></u>" que conjuntamente
+                            con la Vendedora se denominan como las "<u><b>partes</b></u>"), la suma de dólares estadounidenses 
+                            billete 
+                            (nosequevaaca) (
+                            <span t-field="o.price"/>U$S) en concepto de <b>RESERVA</b>
+                            (en adelante la "<u>Reserva</u>" o la  "<u>Presente Reserva</u>"
+                            o la "<u>Presente</u>" indistintamente), de conformidad con los términos 
+                            y condiciones que a continuación se detallan:
                         </p>
-                        <p>This object's name is <span t-field="o.offer_number"/></p>
+                        <p>
+                            <u>1.-</u> <u><b>OBJETO</b></u>: La Compradora ofrece de manera irrevocable
+                            a la Vendedora, adquirir la unidad funcional que se designa provisoriamente con
+                            el N°
+                            <span t-field="o.offer_number"/>
+                            del Emprendimiento, que cuenta con una superficie aproximada de
+                            <span t-field="o.property_total_area"/> metros (en adelante la 
+                            "<u><b>Unidad Funcional</b></u>"), conforme la documentación adjunta
+                            a la presente, dentro del Emprendimeinto ubicado con frente a la calle
+                            Las Golondrinas y Presidente Derqui, de la Localidad de la Lonja, Partido de Pilar,
+                            Provincia de Buenos Aires.
+                        </p>
+                        <p>
+                            <u>2.-</u> <u><b>PRECIO Y FORMA DE PAGO</b></u>: Compradora ofrece adquirir
+                            la Unidad Funcional por un Precio Estimado Base de DOLARES ESTADOUNIDENSES
+                            <span t-field="o.property_expected_price"/>(U$S.350), el cual será abonado
+                            a la Vendedora conforme la opción:
+                        </p>
+                        <p>
+                            <b>OPCION 1</b>: 35% de anticipo, 2 refuerzos y 36 cuotas mensuales en pesos 
+                            más CAC, convertidos a pesos argentinos al tipo de cambio según el tipo de 
+                            cambio MEP Vendedor publicado por el portal de noticias 
+                            <href>www.ambito.com</href> el día anterior a la firma del Contrato de 
+                            Compraventa (en adelante los  <u>Saldo Convertidos a Pesos</u>)
+                        </p>
+                        <p>
+                            <b>OPCION 2</b>: 55% de anticipo y 36 cuotas mensuales en pesos más CAC, 
+                            convertidos a pesos argentinos al tipo de cambio según el tipo de cambio 
+                            MEP Vendedor publicado por el portal de noticias 
+                            <href>www.ambito.com</href> el día anterior a la firma del Contrato de 
+                            Compraventa (en adelante los  <u>Saldo Convertidos a Pesos</u>)
+                        </p>
+                        <p>
+                            <b>OPCION 3</b>: Contado.
+                        </p>
+                        <p>
+                            2.1. Se considera Precio Base Estimado toda vez que las Cuotas Mensuales se
+                             ajustarán mensualmente conforme la aplicación del futuro Índice de la Cámara
+                             Argentina de la construcción (CAC) Nivel General Base, a contar desde el mes 
+                             de firma del contrato de compraventa.
+                        </p>
+                        <p>
+                            2.2. El pago del Anticipo y las Cuotas Refuerzos antes señaladas deberán ser 
+                            cancelados en billetes de dólares estadounidenses que la Compradora declara 
+                            atesorar, y en un todo de acuerdo con lo previsto en el artículo 766 del 
+                            Código Civil y Comercial de la Nación. La Compradora declara y garantiza que 
+                            a la fecha atesora, tiene en su poder de libre disponibilidad la suma 
+                            contemplada en concepto de Anticipo, y por tal asume el compromiso de mantener 
+                            dicho atesoramiento para ser destinado a la cancelación del mismo respecto a 
+                            en su cuantía, plazo y moneda de pago. Las Partes establecen que lo convenido 
+                            se ajusta a lo dispuesto por el artículo 766 del Código Civil y Comercial de 
+                            la Nación (CCyCN), renunciando la parte Compradora en forma irrevocable a la 
+                            opción que otorga la última parte del artículo 765 del CCyCN. Siendo así, la 
+                            Compradora no podrá invocar válidamente el riesgo de cualquier circunstancia 
+                            (incluyendo especialmente caso fortuito o fuerza mayor) que pudiere acontecer 
+                            en el futuro y afectare el mercado de cambios o los mecanismos para la 
+                            obtención de dólares estadounidenses. En consecuencia, la Compradora reconoce 
+                            en forma expresa que su obligación se mantendrá vigente y plenamente exigible 
+                            hasta tanto la Vendedora no reciba el pago del Anticipo y el no pago en la 
+                            cuantía, moneda y plazo pago del mismo será considerado causal de incumplimiento.
+                        </p>
+                        <p>
+                            <u>3.-</u> <u><b>CONDICIONES</b></u>: La presente RESERVA quedará sin efecto, 
+                            en caso de que, en el plazo de 4 meses contados a partir de la presente, la 
+                            Vendedora <u>no</u> obtuviere al menos 120 (ciento veinte) reservas adicionales
+                            por parte de terceros (en adelante la "<u>Condición Resolutoria</u>". En tal 
+                            supuesto la Vendedora le reintegrará a la Compradora, dentro de los siguientes 
+                            5 días de acaecida la Condición Resolutoria, la suma entregada en este acto en 
+                            concepto de Reserva, sin ninguna actualización, ni intereses, aceptando 
+                            expresamente la Compradora que tal reintegro <u>no</u> implicará ningún tipo de
+                            responsabilidad para la Vendedora.  En consecuencia, la Compradora renuncia a 
+                            reclamar cualquier tipo de indemnización o multa por cualquier concepto se 
+                            pudiere haber devengado en su favor, en virtud de la presente Reserva. 
+                        </p>
+                        <p>
+                            <u>4.-</u> <u><b>SUSCRIPCION DEL CONTRATO DE COMPRAVENTE</b></u>: En el supuesto 
+                            de que la Vendedora obtuviere las 120 (ciento veinte) Reservas por parte de 
+                            terceros, deberá comunicarle a la Compradora a su Domicilio Electrónico, el día 
+                            y la hora en que deberá concurrir a la Escribanía designada por ella, debiendo 
+                            abonar en dicho acto la Compradora a la Vendedora, además del Anticipo del Precio 
+                            Acordado, el 50% de los impuestos de sellos. 
+                        </p>
+                        <p>
+                            <u>5.-</u> <u><b>ESCRITURA</b></u>: La escritura traslativa de dominio de la unidad
+                            funcional se otorgará por ante la Escribanía designada por la Vendedora, y tendrá
+                            lugar una vez cancelado la totalidad del Saldo de Precio acordado, finalizadas las 
+                            obras proyectadas, y dentro de los ciento ochenta (180) días posteriores a las 
+                            aprobaciones y/o permisos y/o inscripciones del Emprendimiento por parte de las 
+                            autoridades gubernamentales, nacionales, provinciales o municipales que deban intervenir.
+                            Los gastos de escrituración serán soportados en su totalidad por la Compradora.
+                        </p>
+                        <p>
+                            <u>6.-</u> <u><b>INCUMPLIMIENTOS</b></u>: Si la Vendedora o la Compradora no concurrieren
+                            al lugar, día y hora fijada por la celebración del Contrato de Compraventa, incurrirán
+                            en causal de incumplimiento y por tal resultará de aplicación las penalidades que a
+                            continuación se detallan. 
+                        </p>
+                        <p>
+                            6.1. Si la incumplidora fuere la Compradora, perderá la suma abonada en este acto como 
+                            Reserva, en concepto penalidad única y omnicomprensiva de cualquier daño que pudiere 
+                            invocar la Vendedora.
+                        </p>
+                        <p>
+                            6.2. Si la incumplidora fuere la Vendedora deberá indemnizar a la Compradora con la 
+                            suma abonada en este acto como Reserva con mas otra suma igual, dentro del plazo de 
+                            15 días corridos de acaecido el incumplimiento, en concepto penalidad única y 
+                            omnicomprensiva de cualquier daño que pudiere invocar la Compradora. 
+                        </p>
+                        <p>
+                            <u>7.-</u> <u><b>MISCELANEAS</b></u>:
+                        </p>
+                        <p>
+                            7.1. Las Partes constituyen domicilios especiales en los identificados en el comienzo 
+                            como “Domicilio Electrónico”, donde se considerarán válidas todas las comunicaciones 
+                            y/o notificaciones y/o emplazamientos judiciales o extrajudiciales que allí se practiquen. 
+                            Cualquier modificación o cambio de los domicilios especiales fijados por las Partes, 
+                            sólo se interpretará válida a partir de la notificación fehaciente a la contraparte.
+                        </p>
+                        <p>
+                            7.2. En caso de existir cualquier tipo de disputa y/o diferencia entre las Partes en 
+                            relación a las obligaciones establecidas en la presente Reserva, las Partes acuerdan 
+                            someter la misma ante la Justicia Nacional en lo Comercial con asiento en la Ciudad 
+                            Autónoma de Buenos Aires, con renuncia expresa a cualquier otra jurisdicción que 
+                            pudiera corresponderles.
+                        </p>
+                        <p>
+                            En prueba de conformidad, se firman dos (2) ejemplares, de un mismo tenor y al mismo 
+                            efecto, a la fecha 
+                            <span t-field="o.date_of_reserve"/>
+                        </p>
                     </div>
                 </t>
             </t>
