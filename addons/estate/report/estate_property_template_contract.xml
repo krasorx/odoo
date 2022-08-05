@@ -1,0 +1,861 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="report_property_contract">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <style type="text/css">
+                            p{  @font-face {
+                                font-family: 'PT Serif';
+                                font-style: normal;
+                                font-weight: 400;
+                                src: url(https://fonts.gstatic.com/s/ptserif/v17/EJRVQgYoZZY2vCFuvAFbzr-tdg.woff2) format('woff2');
+                                unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+                              }
+                            }
+                            p {font-size: 15px;}
+                        </style>
+                        <h2>
+                            <b>
+                                <center>
+                                        CONTRATO DE COMPRAVENTA
+                                </center>
+                            </b>
+                        </h2>
+                        <h3>
+                            <b>
+                                <center>
+                                    "Fideicomiso Almahue"
+                                </center>
+                            </b>
+                        </h3>
+                        <p>
+                            <center>
+                                Lote N° <span t-field="o.property_lote"/>
+                            </center>
+                        </p>
+                        <p> 
+                           
+                            Entre BGZ FIDUCIARIA S.A CUIT 30-71405451-8, en su carácter de administradora fiduciaria del 
+                            "<b>FIDEICOMISO ALMAHUE</b>" CUIT constituyendo domicilio en la calle Sucre 4250 Piso 4 Oficina 
+                            144 de la Ciudad Autónoma de Buenos Aires (en adelante el "<u>Domicilio Real</u>"), y domicilio 
+                            electrónico en adm@almahue.ar (en adelante el "<u>Domicilio Electrónico</u>") representada en 
+                            este acto por el Señor 
+                            <span t-field="o.sales_person_id.name"/>, D.N.I.
+                            <span t-field="o.sales_person_id.dni"/>, en su carácter de apoderado,- en adelante la 
+                            "<u>VENDEDORA</u>" por una parte, y por la otra parte, el Sr. 
+                            <span t-field="o.partner_id.name"/>, D.N.I N° 
+                            <span t-field="o.partner_id.dni"/> CUIT N° 
+                            <span t-field="o.partner_id.vat"/>, 
+                            <span t-field="o.marital_status"/>, con domicilio en la calle 
+                            <span t-field="o.partner_id.street"/>, de la localidad de 
+                            <span t-field="o.partner_id.city"/> de 
+                            <span t-field="o.partner_id.state_id"/> (en adelante el "<u>Domicilio Real</u>"),
+                            constituyendo domicilio electrónico en su casilla de correo 
+                            <span t-field="o.partner_id.email"/> (en adelante el "<u>Domicilio Electrónico</u>")
+                            Teléfono 
+                            <span t-field="o.partner_id.phone"/>, en un 
+                            _________%, (en adelante la "<u>COMPRADORA</u>"), ambas partes en a ambas partes 
+                            en adelante denominadas conjuntamente como las "<u>PARTES</u>", de común acuerdo 
+                            convienen celebrar el presente contrato; y 
+                        </p>
+                        <p>
+                            <b>CONSIDERANDO:</b>
+                        </p>
+                        <p>
+                            <b>1.</b> Que  con fecha 20 de mayo de 2022 se ha constituido el Fideicomiso 
+                            Almahue (en adelante el "<u>Fideicomiso</u>" o el "<u>Fideicomiso Almahue</u>", 
+                            indistintamente) mediante el cual los Fiducientes, han asumido la obligación de 
+                            ceder y transferir al Fideicomiso sus derechos y obligaciones contemplados en la 
+                            Opción de Compra suscripta con fecha 16 de diciembre de 2021,  el cual contempla 
+                            la adquisición o compra de un inmueble ubicado en el Partido de Pilar, Provincia 
+                            de Buenos Aires, compuesto de distintas fracciones que totalizan una superficie 
+                            de 39 has. 81 áreas, y que se individualizan como: Parcela 728 a: Superficie 
+                            65.339,15 dm2, Matricula 42.876; Parcela 728 b: Superficie 64.379,35 dm2, 
+                            Matricula 42.877; Parcela 728 e: Superficie: 58.180,85 dm2, Matricula 42.875; 
+                            Parcela 731: Superficie 5 ha 62 as 26 cas 3621 cm2, Matricula 42.874; Parcela 728 
+                            f: Superficie 5 ha 68 as 75 cas 70 dm2, Matricula 42.873; Parcela 734 a: superficie: 
+                            8ha 24 as 60 cas, Matricula 16.250; Parcela 1 d, Fracción I: Superficie 1 ha 11 as 
+                            94 cas 22 dm2, Matricula 79.027 y Parcela 1 b, Fracción I: Superficie 30 as 80 cas, 
+                            Matricula 78.052, todas del partido de Pilar (84), (en adelante el "<u>Inmueble</u>").
+                        </p>
+                        <p>
+                            <b>2.</b> Que sobre el Inmueble la VENDEDORA ha proyectado desarrollar un 
+                            emprendimiento el cual constará de 297 lotes aproximadamente (en adelante el 
+                            "<u>Emprendimiento</u>").
+                        </p>
+                        <p>
+                            <b>3.</b> Su organización y registro se conformará bajo las previsiones legales de 
+                            la Provincia de Buenos Aires, y la Municipalidad de Pilar.
+                        </p>
+                        <p>
+                            <b>EN CONSECUENCIA</b>, las PARTES, de mutuo y común acuerdo, resuelven celebrar 
+                            el presente Contrato de Compraventa, en adelante el "<u>Contrato</u>" o el 
+                            "<u>Presente Contrato</u>" o el "Presente", indistintamente, el que se regirá por
+                            las cláusulas y condiciones que a continuación se indican.
+                        </p>
+                        <p>
+                            <b><u>PRIMERA:</u></b> <b>Objeto</b>
+                        </p>
+                        <p>
+                            1.1. La VENDEDORA vende a la COMPRADORA y ésta adquiere, una parcela que se designa 
+                            provisoriamente, como unidad funcional Nº
+                            <span t-field="o.property_lote"/> del Emprendimiento, (en adelante la "<u>Unidad</u>"
+                            o la "<u>Unidad Funcional</u>" o el "<u>Lote</u>", indistintamente), cuyas obras obras
+                            de infraestructura vinculadas con el mismo serán realizadas por la VENDEDORA conforme 
+                            la Memoria Descriptiva que se adjunta al Presente.
+                        </p>
+                        <p>
+                            1.2. La futura Unidad Funcional tendrá una superficie propia total de 
+                            <span t-field="o.property_total_area"/>m², aproximadamente, según croquis que se adjunta 
+                            al presente como Anexo 1. Se deja constancia que la determinación definitiva, su 
+                            superficie exacta, medidas y linderos, surgirán del plano que resulte finalmente aprobado, 
+                            realizándose la presente venta “ad-corpus”.
+                        </p>
+                        <p>
+                            <b><u>SEGUNDA:</u></b> <b>Características del Emprendimiento</b>
+                        </p>
+                        <p>
+                            2.1. Se adjunta como Anexo 2 la planta del Emprendimiento, como Anexo 3 la Memoria 
+                            Descriptiva del Emprendimiento y como Anexo 1 el Croquis de la Unidad Funcional 
+                            (en adelante, la "<u>Documentación Descriptiva</u>"), que sin bien resulta vinculante para 
+                            la PARTES, esta podrán ser modificada por la VENDEDORA, si a su razonable juicio fuere 
+                            necesario o conveniente para obtener la aprobación del Emprendimiento, siempre y cuando 
+                            dichas modificaciones no impliquen cambios sustanciales en el proyecto y a los términos y 
+                            condiciones acordados en el Presente.   
+                        </p>
+                        <p>
+                            2.2. La VENDEDORA podrá en el futuro introducir los cambios que estime convenientes 
+                            respetando las pautas precedentemente indicadas, manteniendo niveles de calidad similares 
+                            con aquellos enunciados en la Documentación Descriptiva en cuanto a detalles constructivos, 
+                            así como materiales a emplearse en la edificación y otros complementarios, conviniéndose 
+                            que su enumeración ha sido hecha a título ejemplificativo, siempre que no alteren 
+                            sustancialmente lo acordado en el Presente.
+                        </p>
+                        <p>
+                            2.3. La denominación e identificación definitiva de la Unidad resultará de los planos 
+                            conforme a obra que resulten aprobados por la Municipalidad de Pilar y del Plano de 
+                            Subdivisión del Inmueble sometido a la normativa del derecho real de Propiedad Horizontal.
+                        </p>
+                        <p>
+                            2.4. La venta se realiza de acuerdo a las medidas indicadas en Anexo 1 “Croquis de la 
+                            Unidad Funcional”. Excepcionalmente, la superficie indicada podrá ser afectada en más o en 
+                            menos en un cinco por ciento (5%) y se considerarán definitivas las que resulten del plano 
+                            de subdivisión. Hasta dicha diferencia, en caso de existir, no habilitará a la parte 
+                            COMPRADORA ni a la VENDEDORA para alterar o modificar el precio de esta operación, ni para 
+                            formular reclamo alguno a la parte VENDEDORA y/o el proyectista y/o el director de obra 
+                            y/o a la empresa constructora y/o al desarrollador inmobiliario y/o al operador 
+                            inmobiliario, ni entre las Partes. 
+                        </p>
+                        <p>
+                            2.5. El Emprendimiento se encuentran en etapa de aprobación por parte de la Municipalidad 
+                            de Pilar expediente 02244/2022. 
+                        </p>
+                        <p>
+                            2.6. Todos los proveedores para el desarrollo del Emprendimiento estarán a cargo de los 
+                            profesionales que designe libremente y a su arbitrio la VENDEDORA. De la misma manera la 
+                            VENDEDORA designará la empresa o empresas constructoras, pudiendo sustituirlas por otras 
+                            empresas, gremios o proveedores, rescindir las contrataciones efectuadas, modificar los 
+                            contratos, etc. todo ello a su libre criterio. 
+                        </p>
+                        <p>
+                            <b><u>TERCERA:</u></b> <b>Precio y Forma de Pago</b>
+                        </p>
+                        <p>
+                            3.1. Esta venta se realiza por el Precio Base Estimado - definido más adelante - de 
+                            DOLARES ESTADOUNIDENSES 
+                            <span t-esc="(o.get_expresed_value(o.property_expected_price))" /> (U$S.
+                            <span t-field="o.property_expected_price"/>), a abonarse de la siguiente manera:
+                        </p>
+                        <p>
+                            a) La suma de DOLARES ESTADOUNIDENSES 
+                            <span t-esc="(o.get_expresed_value(o.price))" />(U$S.
+                            <span t-field="o.price"/>), es abonado por la COMPRADORA a la VENDEDORA en este acto y 
+                            en concepto de anticipo, sirviendo el Presente de recibo y carta de pago suficiente. 
+                        </p>
+                        <p>
+                            b) La suma de DOLARES ESTADOUNIDENSES 
+                            <span t-esc="(o.get_expresed_value(o.property_price_reinforment_m9))" /> (U$S.
+                            <span t-field="o.property_price_reinforment_m9"/>), será abonada por la COMPRADORA a 
+                            la VENDEDORA el día 
+                            <span t-esc="(o.get_payment_date(o.date_of_reserve,275)).day" /> del mes de 
+                            <span t-esc="(o.get_payment_date(o.date_of_reserve,275)).month" /> de 
+                            <span t-esc="(o.get_payment_date(o.date_of_reserve,275)).year" /> ( en adelante "<u>Primera Cuota Refuerzo</u>")
+                        </p>
+                        <p>
+                            c) La suma de DOLARES ESTADOUNIDENSES 
+                            <span t-esc="(o.get_expresed_value(o.property_price_reinforment_m18))" /> (U$S.
+                            <span t-field="o.property_price_reinforment_m18"/>), será abonada por la COMPRADORA a la VENDEDORA el día 
+                            <span t-esc="(o.get_payment_date(o.date_of_reserve,548)).day" /> del mes de 
+                            <span t-esc="(o.get_payment_date(o.date_of_reserve,548)).month" /> de 
+                            <span t-esc="(o.get_payment_date(o.date_of_reserve,548)).year" /> ( en adelante "<u>Segunda Cuota Refuerzo</u>" y conjuntamente con 
+                            la Primera Cuota Refuerzo, se denominaran las "<u>Cuotas Refuerzos</u>")
+                        </p>
+                        <p>
+                            d) El saldo de DOLARES ESTADOUNIDENSES 
+                            <span t-esc="(o.get_expresed_value(o.property_expected_price))"/> (U$S.
+                            <span t-field="o.property_expected_price"/>), son convertidos en este acto a $
+                            <span t-esc="(o.get_expresed_value(o.property_price_balance_pesos_cac))"/> (Pesos 
+                            <span t-field="o.property_price_balance_pesos_cac"/>), y será abonado por la COMPRADORA a la 
+                            VENDEDORA en 
+                            <span t-field="o.cuotas_amount"/> cuotas mensuales y consecutivas de Pesos 
+                            __________________ ($.
+                            _________), cada una  de ellas con más el ajuste indicado 
+                            más adelante, venciendo la primera cuota el 
+                            <span t-esc="(o.get_payment_date(o.date_of_reserve,0)).day" /> de 
+                            <span t-esc="(o.get_payment_date(o.date_of_reserve,0)).month" /> de
+                            <span t-esc="(o.get_payment_date(o.date_of_reserve,0)).year" /> y las restantes cuotas vencerán 
+                            los días 10 (diez) de los meses subsiguientes (en adelante las "<u>Cuotas Mensuales</u>"). 
+                        </p>
+                        <p>
+                            3.2. Se considera Precio Base Estimado toda vez que las Cuotas Mensuales 
+                            se ajustarán mensualmente conforme la aplicación del futuro Índice de la 
+                            Cámara Argentina de la construcción (CAC) Nivel General Base, a contar 
+                            desde la firma de cada contrato. En relación con los ajustes mensuales y 
+                            considerando que la Cámara Argentina de la Construcción usualmente registra 
+                            una demora en publicar los índices de ajustes de cada mes, se estipula que 
+                            la liquidación de los ajustes que efectuará en el primero con 1 a 3 meses de demora.
+                        </p>
+                        <p>
+                            3.3. Las Cuotas Mensuales, con más sus correspondientes ajustes, deberán ser 
+                            depositadas y/o transferidas por la COMPRADORA en las cuentas bancarias de la 
+                            VENDEDORA que se detallan seguidamente  y/o en aquellas que notifique la VENDEDORA como nueva 
+                            cuenta bancaria. Dicha notificación se realizará al mail indicado en el encabezado por la COMPRADORA.
+                        </p>
+                        <p>
+                            a) Cuenta Corriente Especial en Dólares N°
+                            <span t-field="o.cbu_dolars_number"/>, CBU N° 
+                            <span t-field="o.cbu_dolars"/>, del Banco Galicia SA cuya titularidad corresponde a la VENDEDORA.
+                        </p>
+                        <p>
+                            b) Cuenta Corriente en Pesos N°
+                            <span t-field="o.cbu_pesos_number"/>, CBU N° 
+                            <span t-field="o.cbu_pesos"/> del Banco Galicia SA cuya titularidad corresponde a la VENDEDORA. 
+                        </p>
+                        <p>
+                            3.4. La COMPRADORA deberá remitir la constancia del depósito y/o la transferencia a 
+                            la VENDEDORA al mail <u>clomazzi@bgzfiduciaria.com</u> o al que en el futuro se le indique. 
+                            Solo se considerará pago a los efectos de la presente, una vez que la VENDEDORA preste 
+                            conformidad con la recepción de la constancia de depósito y/o transferencia enviada 
+                            por la COMPRADORA, antes indicada.
+                        </p>
+                        <p>
+                            3.5. En caso de retraso en el pago de las "Cuotas Mensuales" y/o las "Cuotas Refuerzos"
+                            pactadas, la COMPRADORA deberá abonar a la VENDEDORA un interés moratorio diario 
+                            equivalente al 0,3% sobre el valor de la misma. Si al día del vencimiento de las 
+                            "Cuota Mensuales" y/o las "Cuotas Refuerzos" pactadas fuere día inhábil bancario, el 
+                            vencimiento se trasladará al siguiente día hábil bancario.
+                        </p>
+                        <p>
+                            3.6. La suscripción del Presente Contrato por parte de la COMPRADORA hará presumir iure 
+                            et de iure que declara, acepta, reconoce y se obliga irrevocablemente, como condiciones 
+                            esenciales de la Compraventa a (i) que el pago del precio se efectúe de la manera 
+                            descripta en el Presente y (ii) que acepta que la falta de pago de las cuotas pactadas 
+                            dará derecho, entre otros, a resolver el Presente por culpa de la COMPRADORA, conforme 
+                            se estipula más adelante.
+                        </p>
+                        <p>
+                            <b><u>CUARTA:</u></b> <b>Posesión</b>
+                        </p>
+                        <p>
+                            4.1.  La entrega de la posesión a la COMPRADORA de la Unidad Funcional, será otorgada por 
+                            la VENDEDORA dentro de los 30 (treinta) meses corridos, contados a partir de la 
+                            que Municipalidad de Pilar otorgue a la VENDEDORA los correspondientes permisos de inicio 
+                            de las obras y/o contados desde el 30 de septiembre de 2022, siempre y cuando la VENDEDORA 
+                            hubiere cancelado el saldo de precio garantizado con la hipoteca de primer grado constituida 
+                            en relación al Inmueble sobre el que se desarrollará el Emprendimiento (en adelante la 
+                            "<u>Posesión</u>"), siendo este un requisito impuesto por la vendedora del Inmueble para que 
+                            la VENDEDORA pueda otorgar la Posesión.
+                        </p>
+                        <p>
+                            4.2.  A los fines de la entrega de la Posesión, la VENDEDORA procederá a notificar al 
+                            Domicilio Electrónico de la COMPRADORA el día, hora y lugar a donde deberá concurrir para 
+                            recibir la Posesión y suscribir la correspondiente acta de entrega de Posesión (en 
+                            adelante la "<u>Notificación de la Posesión</u>")
+                        </p>
+                        <p>
+                            4.3. La entrega de Posesión a que se obliga la VENDEDORA deberá realizarse con las obras 
+                            constructivas previstas para la Unidad Funcional en la Memoria Descriptiva finalizadas, y 
+                            los trámites administrativos de conexión que le correspondan a la VENDEDORA, de los 
+                            servicios de luz, gas de corresponder, cloacas, agua corriente, telefonía e internet 
+                            realizados sin ser responsabilidad de la VENDEDORA ni estar obligada a que dichos servicios 
+                            se encuentren conectados a la red, tarea que corresponde a cada compañía prestadora del 
+                            servicio respectivo.
+                        </p>
+                        <p>
+                            4.4. La Posesión de la Unidad Funcional se entregará desocupada y libre de intrusos, en 
+                            base a títulos perfectos y libre de todo tipo de gravámenes y/o embargos y/o inhibiciones 
+                            y/o cualquier tipo de restricción que impida y/o restrinja la libre y total disponibilidad 
+                            de la Unidad Funcional. Asimismo, la Posesión de la Unidad Funcional se entregará con el 
+                            pago de los impuestos, tasas y contribuciones que la graven al día y sin que exista deuda 
+                            alguna a la fecha de entrega de la Posesión, y en un todo de acuerdo a las especificaciones 
+                            técnicas detalladas en la Memoria Descriptiva. 
+                        </p>
+                        <p>
+                            4.5. Se conviene expresamente que la COMPRADORA no podrá oponerse a recibir la Posesión de 
+                            la Unidad Funcional, por falta de terminación de detalles generales menores que no afecten 
+                            el debido y adecuado funcionamiento específico de la misma. Tampoco por la falta de 
+                            terminación del Emprendimiento, salvo que no se encontrasé utilizable la calle de acceso al 
+                            Emprendimiento y a su Unidad Funcional. 
+                        </p>
+                        <p>
+                            4.6. La COMPRADORA tampoco podrá oponerse a recibir la Posesión por la eventual falta de 
+                            aprobación del plano de final de obra del Emprendimiento por parte de las reparticiones 
+                            publica intervinientes, o el correspondiente al Plano de Subdivisión o el Reglamento de 
+                            Propiedad Horizontal. 
+                        </p>
+                        <p>
+                            4.7. La habilitación de las conexiones domiciliarias de electricidad, gas de corresponder, 
+                            agua, cloaca, telefonía e internet (medidores individuales correspondientes a la Unidad 
+                            Funcional), se encuentran a cargo de la COMPRADORA, obligándose esta última a gestionarlas 
+                            ante las empresas prestadoras. No obstante, la COMPRADORA no podrá negarse a recibir la 
+                            Posesión si por cuestiones no imputables a la VENDEDORA tales servicios, a pesar de la 
+                            diligencia puesta por la VENDEDORA en el cumplimiento en tiempo y forma de su tramitación, 
+                            no se encontraren operativos por cuestiones de infraestructura ajenas al Emprendimiento, o 
+                            por estar pendientes autorizaciones nacionales provinciales y municipales que no dependan 
+                            de la VENDEDORA.
+                        </p>
+                        <p>
+                            4.8. Los plazos referidos a la entrega de la Posesión podrán extenderse en caso de demora 
+                            por a) caso fortuito o fuerza mayor extraña y no imputable a la VENDEDORA, ni a los 
+                            subcontratistas o gremios intervinientes en la terminación del Emprendimiento; (b) por 
+                            falta de materiales en plaza, (c) lluvias extraordinarias, etc. En dichos supuestos no 
+                            existirá responsabilidad atribuible a la VENDEDORA. Se considerará como caso fortuito o 
+                            fuerza mayor, no siendo la enumeración taxativa sino orientativa, (i) cualquier acto, 
+                            acción u omisión por parte de los organismos gubernamentales en el orden Nacional, 
+                            Provincial o Municipal, o de las empresas y/o contratistas que tengan a cargo la realización 
+                            del Emprendimiento que impida o demore las obras proyectadas para el Emprendimiento  y/o 
+                            registración de los planos, y/o impida o demore cualquier trámite necesario a los efectos 
+                            de la aprobación de las obras de infraestructura y/o civiles y/o su subdivisión bajo el 
+                            régimen de propiedad horizontal; o que obstaculice o impida el cumplimiento de las 
+                            obligaciones de la VENDEDORA en el Presente; en cuyo caso no será considerado como 
+                            incumplimiento del mismo, y no considerándose en consecuencia causal de incumplimiento por 
+                            parte  de la VENDEDORA. (ii) Las lluvias o factores meteorológicos que superen la cantidad 
+                            de días considerada normal en el mes correspondiente según la media informada por el Servicio 
+                            Meteorológico Nacional. El concepto "lluvia" debe asimilarse también otros eventos 
+                            meteorológicos que tengan influencia comprobable sobre el desarrollo de la obra. La VENDEDORA 
+                            tendrá derecho a la ampliación del plazo de entrega de la Posesión en tres días por cada día 
+                            de "consecuencia de lluvia extraordinaria", es decir, aquellas que en un mes calendario se 
+                            verifiquen por encima de la media informada por el Servicio Meteorológico Nacional. 
+                        </p>
+                        <p>
+                            <b><u>QUINTA:</u></b> <b>Fondo de Reserva</b>
+                        </p>
+                        <p>
+                            5.1. Junto con la recepción de la Posesión de la Unidad Funcional, la COMPRADORA deberá abonar 
+                            a la VENDEDORA o en su caso al Administrador del Consorcio un monto equivalente al 1 por ciento 
+                            (1%) del precio de venta de la Unidad Funcional en concepto de “Fondo Operativo o de Caja”, y 
+                            se aplicará para financiar las erogaciones necesarias de gastos, impuestos, tasas municipales 
+                            comunes, apertura de partidas, etc. durante el mes y hasta su recupero por liquidación mensual 
+                            y/o a los desfasajes generados por deudores morosos. 
+                        </p>
+                        <p>
+                            5.2. Dichos importes serán administrados por la VENDEDORA o el Administrador del Consorcio 
+                            designado, y no devengarán intereses. 
+                        </p>
+                        <p>
+                            <b><u>SEXTA:</u></b> <b>Pago de los gastos comunes y otros.</b>
+                        </p>
+                        <p>
+                            6.1. A partir  de la Notificación de Posesión, aun cuando la COMPRADORA se negaré o no 
+                            concurriere a suscribir el acta de entrega de la Posesión, obligará a esta última, siempre y 
+                            cuando se cumplan las condiciones establecidas en la Presente a los fines de la debida entrega 
+                            de la Posesión, al inicio del pago mensual de una contribución a los gastos comunes ordinarios 
+                            y extraordinarios por un valor proporcional vinculado con su Unidad Funcional el cual será 
+                            destinado al mantenimiento de los espacios comunes y de la seguridad del Emprendimiento, todo 
+                            ello de conformidad con las pautas establecidas en los Arts. 2046 inciso c) y 2048 del Código 
+                            Civil y Comercial de la Nación (en adelante "<u>Contribución a los Gastos Comunes</u>").  
+                        </p>
+                        <p>
+                            6.2. Junto con la Contribución a los Gastos Comunes, y hasta tanto se haya aprobado el Plano 
+                            de Subdivisión que le permita a los entes recaudadores individualizar cada Unidad Funcional, 
+                            cada propietario deberá abonar la parte proporcional correspondientes a su Unidad, en relación 
+                            (i) al impuesto inmobiliario de la Provincia de Buenos Aires (ARBA) y (ii) a la tasa de 
+                            Alumbrado, Limpieza y Servicios de la Municipalidad de Pilar. También deberá abonar los 
+                            proporcionales a los servicios de agua, cloacas, energía eléctrica, gas, internet, cable, y 
+                            otros hasta que no se constituyan las boletas particulares de cada una de las Unidades 
+                            Funcionales (en adelante los "<u>Impuestos, tasas y Servicios</u>")
+                        </p>
+                        <p>
+                            6.3. La implementación, administración, liquidación y puesta al cobro de la Contribución a los 
+                            Gastos Comunes y el pago los Impuestos, Tasas y Servicios, a cargo de los COMPRADORES, estará 
+                            orientada y adecuada a la proporcionalidad que procurará mantener armonía y equidad 
+                            considerando los coeficientes y/o superficie de cada Unidad Funcional. 
+                        </p>
+                        <p>
+                            6.4. No obstará a la obligación del pago, la eventual circunstancia que no se encuentre aprobado 
+                            cualesquiera de los planos mencionados en la Presente ni el Reglamento de Propiedad Horizontal, 
+                            siempre y cuando se cumplan todas las condiciones constructivas establecidas a los fines de la 
+                            debida entrega de Posesión de la Unidad Funcional a la COMPRADORA. 
+                        </p>
+                        <p>
+                            6.7. Hasta tanto se constituya el Consorcio que prevé el artículo 2044 del CCyCN, la 
+                            administración, liquidación y puesta al cobro de todo lo referido correspondiente al cobro de 
+                            la Contribución a los Gastos Comunes y al pago de los Impuestos, Tasas y Servicios, 
+                            corresponderá a la VENDEDORA en su calidad de administradora del Emprendimiento y/o a un 
+                            tercero designado por ella, cuyos honorarios de mercado, se integraran a la Contribución de 
+                            los Gastos Comunes.
+                        </p>
+                        <p>
+                            6.8. La falta de pago de la Contribución a los Gastos Comunes y el pago los Impuestos, Tasas 
+                            y Servicios será considerado causal de incumplimiento grave, motivo por el cual la VENDEDORA 
+                            estará facultada a resolver el Presente, y aplicar las penalidades contempladas más adelante. 
+                            La gravedad de tal incumplimiento radica en la inequidad y trastornos que la falta de pago 
+                            provoca a los restantes compradores cumplidores que deben solventar con fondos propios la 
+                            carga de la morosidad del comprador incumplidor, a saber: a) los costos para mantener al día 
+                            el pago de los Impuestos y Tasas que resulta ser una exigencia - sine qua non  - por parte 
+                            del Registro de la Propiedad Inmueble a los fines de poder inscribir el Reglamento de 
+                            Propiedad Horizontal y por tal proceder a otorgarse las Escrituras - definidas más adelante -  
+                            a todos los Compradores, b) el costo para el pago de los servicios de seguridad del 
+                            Emprendimiento que impide entre otras cosas, la intrusión por parte de terceros a los lotes de 
+                            todos los Compradores, robos o hurtos en las obras particulares en construcción y en las 
+                            viviendas habitadas, etc c) el costo para el pago del mantenimiento de los espacios comunes 
+                            del barrio, tales como corte de pasto, limpieza, calles internas, iluminación, cerca perimetral, 
+                            etc  d) los honorarios de la administración del barrio, etc.
+                        </p>
+                        <p>
+                            <b><u>SEPTIMA:</u></b> <b>Impuestos Inmobiliario.</b>
+                        </p>
+                        <p>
+                            7.1. El impuesto inmobiliario que grava el Inmueble refleja actualmente una valuación como predio 
+                            o terreno sin construcciones (en adelante el "<u>Impuesto Inmobiliario</u>"). Durante la vigencia 
+                            de la presente sufrirá diversas modificaciones derivadas de su encuadre de las mejoras 
+                            introducidas y finalmente de su subdivisión. Este proceso, no se realiza por la Dirección 
+                            Provincial de Rentas en forma organizada ni unívoca. De allí se deducen una serie de confusiones 
+                            por criterios de valuación, alícuotas y, fundamentalmente, retroactividades de dichos conceptos. 
+                            Es por ello que la VENDEDORA otorgará la libre deuda a efectos de las cesiones, el que puede 
+                            resultar incompleto desde el punto de vista del Impuesto Inmobiliario. Este concepto debe ser 
+                            considerado entre las partes de las correspondientes cesiones, eximiendo a la VENDEDORA de 
+                            responsabilidad a tal efecto. Similares conceptos a los desarrollados para el Impuesto 
+                            Inmobiliario son aplicables a los gastos de subdivisión y escrituración. El esquema conceptual es 
+                            similar al referido para el impuesto inmobiliario: la VENDEDORA otorga la libre deuda para la 
+                            cesión de derechos, informando la inexistencia de deuda exigible a dicho momento, lo cual no 
+                            implica que no se devengará en el futuro y aún por conceptos retroactivos. Dichos revalúo, 
+                            imposibles de determinarlo en esta instancia y por tal no se encuentra incorporados en el precio 
+                            acordados en la Presente, estarán a cargo de los COMPRADORES en la proporción de la incidencia de 
+                            su Unidad Funcional (en adelante el "<u>Pago de los Revalúo</u>"
+                        </p>
+                        <p>
+                            7.2. La falta de Pago de los Revalúo en tiempo y forma, impide a los restantes compradores y 
+                            propietarios cumplidores acceder a la Escritura de adjudicación de dominio, en tanto que 
+                            constituye un exigencia normativa de las reparticiones públicas que intervienen en los procesos 
+                            de aprobaciones e inscripciones de los planos y el Reglamento de Propiedad Horizontal, el libre 
+                            deuda por parte de ARBA para lo cual es necesario que la totalidad de las unidades funcionales 
+                            del  Emprendimiento se encuentren al día. Por tal motivo será considerado causal de 
+                            incumplimiento grave la falta del Pago de los Revalúo, por el cual la VENDEDORA estará facultada 
+                            a resolver la Presente, y aplicar las penalidades contempladas más adelante. 
+                        </p>
+                        <p>
+                            <b><u>OCTAVA:</u></b> <b>Otras obligaciones de las Partes.</b>
+                        </p>
+                        <p>
+                            8.1. Además de todas y cada una de las obligaciones detalladas en el Presente Contrato, la 
+                            VENDEDORA estará obligada a: 
+                        </p>
+                        <p>
+                            a) realizar la construcción de las obras que afectan al Emprendimiento y a la Unidad Funcional 
+                            dentro de los plazos y las normas constructivas que surgen de la Presente, empleando materiales 
+                            de calidad y bajo altos estándares de edificación y construcción.
+                        </p>
+                        <p>
+                            b) confeccionar el Reglamento de Propiedad Horizontal; Reglamento General de Convivencia, y el 
+                            Acta de Posesión, como así también cualquier otro reglamento y/o documento interno que fuera 
+                            necesario para el mejor funcionamiento del Emprendimiento. 
+                        </p>
+                        <p>
+                            c) transferir el dominio de la Unidad Funcional a la COMPRADORA mediante la suscripción de la 
+                            escritura pertinente, una vez que se haya obtenido la subdivisión e inscripción de las Unidades 
+                            Funcionales y la inscripción del correspondiente Reglamento de Propiedad Horizontal, en el 
+                            registro de la Propiedad de la Provincia de Buenos Aires. 
+                        </p>
+                        <p>
+                            e) transferir las cosas y partes comunes según el régimen de Propiedad Horizontal. 
+                        </p>
+                        <p>
+                            8.2. Además de todas y cada una de las obligaciones detalladas en el Presente Contrato, la 
+                            COMPRADORA estará obligada a:
+                        </p>
+                        <p>
+                            a) abonar en su totalidad, en el tiempo y la forma pactada, el precio de venta por la Unidad 
+                            Funcional, con sus correspondientes ajustes de conformidad con lo acordado en el Presente. 
+                        </p>
+                        <p>
+                            b) concurrir al acto de toma de Posesión, 
+                        </p>
+                        <p>
+                            c) pagar en tiempo y forma el pago la Contribución de los Gastos Comunes, los Impuestos, Tasas 
+                            y Servicios del Emprendimiento y el Pago de los Revalúo. 
+                        </p>
+                        <p>
+                            b) concurrir al acto de Escrituración y otorgar a favor de la VENDEDORA o del Emprendimiento 
+                            sobre los fundos que cualquiera de éstos designen, servidumbre real perpetua sobre la Unidad 
+                            Funcional, que resulten necesarias con el objeto de permitir el pasaje de cañerías, cables o de 
+                            cualquier otro elemento que resulte necesario para la instalación en el futuro de servicios 
+                            generales tales como agua corriente, cloacas, cámaras sépticas colectivas, electricidad, 
+                            teléfonos y/o cualquier otro servicio/s, o medio/s de comunicación o transmisión que la VENDEDORA 
+                            estimare conveniente. Dichas servidumbres deberán conformarse de forma tal que la Unidad 
+                            Funcional pueda resultar apta para su destino y finalidad con la cual fuera adquirida por la 
+                            COMPRADORA.  
+                        </p>
+                        <p>
+                            c) respetar, cumplir y hacer cumplir el Reglamento de Propiedad Horizontal y otros Reglamentos 
+                            dictados por la VENDEDORA, los futuros a ser dictados por el Consorcio de Propietarios.
+                        </p>
+                        <p>
+                            d) En caso de fallecimiento o incapacidad de la COMPRADORA, sus herederos deberán unificar su 
+                            representación dentro del término de 90 días de producido el hecho y dar cumplimiento a todas y 
+                            cada una de las condiciones establecidas en la Presente. En caso de que no lo hicieran, la 
+                            VENDEDORA podrá exigir su cumplimiento o declarar resuelto el Presente Contrato - previa 
+                            intimación fehaciente por el plazo de quince (15) días- de conformidad con las pautas 
+                            establecidas en la misma. 
+                        </p>
+                        <p>
+                            <b><u>NOVENA:</u></b> <b>Escrituración.</b>
+                        </p>
+                        <p>
+                            9.1. Las Partes acuerdan que la escritura traslativa o de adjudicación de dominio de la Unidad 
+                            Funcional (la "<u>Escritura</u>") será otorgada por el Escribano que designe la VENDEDORA.
+                        </p>
+                        <p>
+                            9.2. La Escritura de la Unidad Funcional deberá otorgarse, una vez finalizadas las obras 
+                            constructivas que afecten a la misma, que las áreas administrativas pertinentes de la Provincia 
+                            de Buenos Aires (catastro, rentas, geodesia, hidráulica, ADA etc.), finalicen la totalidad de 
+                            los trámites y registraciones necesarios para proceder a la transmisión del dominio de la Unidad 
+                            Funcional y  dentro de los 180 (ciento ochenta) días contados a partir de la fecha de aprobación 
+                            del Plano de Subdivisión afectando el Inmueble al régimen Propiedad Horizontal e inscripto el 
+                            correspondiente Reglamento y siempre que el COMPRADOR hubiere cancelado precio total pactado por 
+                            la venta de la Unidad Funcional y hubiere realizado el pago de la Contribución de los Gastos 
+                            Comunes, el pago de los Impuestos, Tasas y Servicios y el Pago del Revalúo. 
+                        </p>
+                        <p>
+                            9.3. Culminados los trámites a los que se alude precedentemente, la VENDEDORA notificará esta 
+                            circunstancia por medio fehaciente, momento en el que comenzará a computarse el plazo de 180 
+                            (ciento ochenta) días pactado.
+                        </p>
+                        <p>
+                            9.4. El Escribano designado citará a la COMPRADORA con día, lugar y hora de firma de la escritura 
+                            con una anticipación mínima de 30 (treinta) días corridos. La COMPRADORA deberá entregar 
+                            previamente al Escribano designado la totalidad de la documentación necesaria para proceder a la 
+                            escrituración.
+                        </p>
+                        <p>
+                            9.5. La VENDEDORA declara y garantiza que la escritura traslativa de dominio se realizará en base 
+                            a títulos perfectos, libre de todo gravamen, inhibición, embargo y/o cualquier otra medida que de 
+                            algún modo pueda afectar la libre disposición de la Unidad Funcional, a excepción de aquellos 
+                            indicados en el presente Contrato y los establecidos o reconocidos en el Reglamento de Propiedad 
+                            Horizontal, tales como servidumbres de uso y/o paso, de vista o de electroducto, entre otros, y 
+                            las eventuales restricciones que la Municipalidad de Pilar pudiera introducir de manera general 
+                            en el Emprendimiento para su mejor funcionamiento. 
+                        </p>
+                        <p>
+                            9.6. El Fiduciario designa a la escribanía Berro Sagarna, con oficinas en la calle Moreno n° 5, 
+                            tercer piso, oficina 6 de la ciudad y partido de San Isidro, Provincia de Buenos Aires 
+                            (TE 4743-2509/6944).- para que realice las escrituras de Reglamento de Propiedad Horizontal y de 
+                            transferencia de dominio de las Unidades Funcionales a favor de los Beneficiarios o 
+                            adquirentes.- Los costos que se originen como consecuencia del otorgamiento de las escrituras de 
+                            Reglamento de Propiedad Horizontal y las de adjudicación y/o venta, serán a cargo de los 
+                            respectivos adquirentes de las distintas unidades funcionales, siendo dichos gastos 
+                            aproximadamente, los siguientes: (i) En concepto de honorarios totales por la escritura de 
+                            adjudicación y/o venta, el importe equivalente al 1,5 % sobre el valor de mercado de la unidad a 
+                            transferir. (ii) En concepto de gastos y honorarios proporcionales correspondientes al Reglamento 
+                            de Propiedad Horizontal, el 0,75 % aplicable sobre la misma base imponible citada en el punto 1) 
+                            precedente.- (iii) El 2 % sobre el valor fiscal para el impuesto al acto, o el valor asignado, si 
+                            éste fuera mayor, en concepto de Impuesto de Sellos o el porcentual que en el futuro lo reemplace, 
+                            con mas el porcentual del 0,8 % aplicable sobre la misma base imponible, en concepto de Aportes de 
+                            ley. (iv) Los gastos usuales para este tipo de operaciones, que no excederán del equivalente al 
+                            0,75 % sobre la misma base imponible de los items precedentes. La vendedora podrá designar a otro 
+                            Escribano en el caso en que lo considere pertinente. Dicho escribano tendrá también a su cargo 
+                            actuar como depositario de toda la documentación, certificar las firmas en los Contratos de 
+                            Compraventa y sus posteriores cesiones y todos aquellos actos que ha criterio del Fiduciario 
+                            resulte necesaria su intervención. 
+                        </p>
+                        <p>
+                            9.7. Adicionalmente a la obligación asumida en el inciso anterior, la COMPRADORA, al momento del 
+                            otorgamiento de la escritura traslativa de dominio, deberá otorgar un Poder Especial Irrevocable, 
+                            en los términos de los artículos 1330 y concordantes del CCyC, a favor de la VENDEDORA y el 
+                            Consorcio, para que éstas en el futuro, puedan realizar todos los actos que fueran necesarios 
+                            para la finalización del Emprendimiento, y efectuar las modificaciones y ratificaciones que 
+                            fueran necesarias del Plano de  Subdivisión.  
+                        </p>
+                        <p>
+                            <b><u>DECIMA:</u></b> <b>Incumplimientos.</b>
+                        </p>
+                        <p>
+                            10.1. En caso de incumplimiento de alguna de las obligaciones estipuladas en el Presente, la 
+                            parte cumplidora podrá intimar a la parte incumplidora, para que, dentro del plazo de 15 (quince) 
+                            días corridos de notificada, subsane el incumplimiento. De persistir el incumplimiento, la parte 
+                            cumplidora podrá optar por: a) demandar el cumplimiento, con más las penalidades acordadas en el 
+                            Presente o los daños y perjuicios que tal incumplimiento le ocasionaren, en los casos que <u>no</u>
+                            hubiere penalidad acordada, (en adelante "<u>Demandar el Cumplimiento</u>" o, b) declarar resuelto 
+                            el Presente Contrato por incumplimiento y reclamar las penalidades acordadas en el presente o los 
+                            daños y perjuicios que tal incumplimiento le ocasionaren, en los casos que <u>no</u> hubiere 
+                            penalidad acordada (en adelante "<u>Resolución del Contrato</u>").
+                        </p>
+                        <p>
+                            10.2. En el supuesto de Resolución del Contrato sea por disposición de la COMPRADORA y/o la 
+                            VENDEDORA, las Partes acuerdan que esta última tendrá la libre disponibilidad de la Unidad 
+                            Funcional, independientemente de los reclamos y/o penalidades pendientes de cumplimiento que la 
+                            Partes pudieren tener entre ellas.
+                        </p>
+                        <p>
+                            10.3. <u>Penalidades por incumplimiento de la VENDEDORA</u>:
+                        </p>
+                        <p>
+                            a) En el supuesto que la VENDEDORA no transfiera la Unidad Funcional objeto del Presente 
+                            procediendo a su escrituración a favor de la COMPRADORA, en los plazos y condiciones acordadas, 
+                            la COMPRADORA, en el caso de optar por Demandar el Cumplimiento, tendrá derecho a percibir de 
+                            la VENDEDORA, en concepto de cláusula penal, la suma de $50 (dólares estadounidenses cincuenta) 
+                            por día, a cargo de la VENDEDORA y por todo el tiempo en que se mantenga el incumplimiento. 
+                            En caso de optar por la Resolución del Contrato, la VENDEDORA deberá reintegrarle a la 
+                            COMPRADORA la totalidad de las sumas que hubiere abonado bajo los términos del Presente, 
+                            (en adelante las "<u>Sumas Abonadas</u>"). Adicionalmente con ello y en concepto de cláusula 
+                            penal la VENDEDORA deberá abonarle a la COMPRADORA, una suma adicional estipulada en el treinta 
+                            por ciento (30%) de las Sumas Abonadas y en la misma moneda que fueron abonadas.
+                        </p>
+                        <p>
+                            b) En caso de Resolución del Contrato por incumplimiento de la VENDEDORA, ésta se obliga a 
+                            reintegrar a la COMPRADORA, las sumas abonadas en la misma moneda en que fueron abonadas. 
+                            Si el pago fuera en dólar estadounidense billete deberá ser reintegrada en dicha moneda, como 
+                            asimismo la Penalidad Adicional, que se deberá abonar exclusivamente en moneda dólar 
+                            estadounidense billete. Al respecto las Partes establecen que lo convenido se ajusta a lo 
+                            dispuesto por el artículo 766 del Código Civil y Comercial de la Nación (CCyCN), renunciando 
+                            la parte VENDEDORA en forma irrevocable a la opción que otorga la última parte del artículo 
+                            765 del CCyCN. La parte VENDEDORA, de darse dicha situación de incumplimiento, asume y toma a 
+                            su exclusivo cargo el riesgo de cualquier circunstancia (incluyendo especialmente caso fortuito 
+                            o fuerza mayor) que pudiere acontecer en el futuro y afectare el mercado de cambios o los 
+                            mecanismos para la obtención de dólares estadounidenses, tornando imposible o más onerosa su 
+                            adquisición en el mercado local. En consecuencia, de darse dicha situación de incumplimiento, 
+                            la VENDEDORA reconoce en forma expresa que su obligación se mantendrá vigente y plenamente 
+                            exigible hasta tanto la parte COMPRADORA no reciba la exacta cantidad de dólares 
+                            estadounidenses billetes que se le adeudan.
+                        </p>
+                        <p>
+                            c) La COMPRADORA en ningún caso podrá afectar la libre y absoluta disponibilidad de los 
+                            derechos correspondiente a la VENDEDORA sobre otras Unidades Funcionales del Emprendimiento. 
+                            En caso de acción judicial instaurada por la COMPRADORA contra la VENDEDORA, ésta última podrá 
+                            optar por depositar, a la orden del juez y en los autos respectivos, las sumas abonadas por la 
+                            COMPRADORA con más los porcentajes y montos pactados en concepto de cláusula penal, con más un 
+                            40 % para cubrir los eventuales daños y perjuicios y gastos del litigio. Mediante este depósito 
+                            en caución, la COMPRADORA renuncia y le queda terminantemente vedado el derecho a enervar o 
+                            trabar de manera alguna, la libre disposición de cualquier otra unidad de propiedad de la 
+                            VENDEDORA, no pudiendo solicitar anotaciones de embargo, litis, inhibiciones totales o parciales, 
+                            ni, en general, solicitar medidas precautorias de ninguna naturaleza que pudieren afectar la 
+                            libre disponibilidad de cualquiera de las unidades ajenas al litigio.
+                        </p>
+                        <p>
+                            d) Si en violación de esta cláusula la COMPRADORA solicitare y obtuviera las medidas precautorias 
+                            respecto de otras unidades de propiedad de la VENDEDORA distintas de la UNIDAD, la VENDEDORA 
+                            podrá requerir su levantamiento con más una multa diaria, a modo de cláusula penal (Art. 790 y 
+                            concordantes. del CCyC) de U$S 50 (dólares estadounidenses cincuenta) por día a cargo de la 
+                            COMPRADORA y por todo el tiempo en que se mantenga la interdicción.
+                        </p>
+                        <p>
+                            e) La COMPRADORA renuncia de manera irrevocable a exigir a la VENDEDORA el seguro de caución 
+                            contemplado en el Artículo 2071 del Código Civil y Comercial de la Nación, en tanto que el 
+                            costo del mismo no fue considerado al momento de acordar entre las Partes, el precio estipulado 
+                            en la Presente. Sin perjuicio de ello, si en el futuro la VENDEDORA dispusiere la contratación 
+                            del mencionado seguro, el costo del mismo estará a exclusivo cargo de la VENDEDORA. 
+                        </p>
+                        <p>
+                            10.4. <u>Penalidades por incumplimiento de la COMPRADORA</u>.
+                        </p>
+                        <p>
+                            a) En caso de incumplimiento de la COMPRADORA en presentarse a recibir la Posesión y/o a 
+                            escriturar, deberá abonar a la VENDEDORA una multa a razón de U$S50 (dólares estadounidenses 
+                            cincuenta) por día a cargo de la COMPRADORA y por todo el tiempo en que se mantenga el 
+                            incumplimiento.
+                        </p>
+                        <p>
+                            b) En caso de incumplimiento en el pago del precio, en los plazos y formas acordadas en el 
+                            Presente, y en el supuesto que la VENDEDORA optaré por Demandar el Cumplimiento, podrá declarar 
+                            la caducidad de los plazos pendientes otorgados y exigir el pago de la totalidad del saldo de 
+                            precio. En caso de mora de la COMPRADORA en la cancelación de las sumas que corresponda 
+                            percibir a la VENDEDORA conforme lo antes expuesto, además de las multas pactadas, se 
+                            devengarán intereses punitorios a la tasa del 0,5% diario sobre la totalidad de la suma 
+                            adeudada. En caso de que la VENDEDORA optare por la Resolución del Contrato, las Partes acuerdan 
+                            la pérdida para la COMPRADORA de todas Sumas Abonadas a la VENDEDORA y/o cualquier derecho que 
+                            pudiera tener o alegar bajo la Presente, a modo de cláusula penal.
+                        </p>
+                        <p>
+                            c) La falta de pago de dos o más liquidaciones de los Gastos Comunes y el pago de los Impuestos, 
+                            Tasas y Servicios correspondientes a la Unidad Funcional por parte de la COMPRADORA, y en caso 
+                            de que la VENDEDORA optaré por Demanda el Cumplimiento, se devengará una penalidad diaria del 1% 
+                            (uno por ciento) mensual por cada día de persista el incumplimiento. Las Partes acuerdan que, 
+                            hasta tanto no se inscriba el Reglamento de Copropiedad, los certificados de deudas por la falta 
+                            de pago en la Contribución a los Gastos Comunes y el pago los Impuestos, Tasas y Servicios con 
+                            más sus intereses correspondientes, emitido por el Fiduciario y/o administrador designado por 
+                            este, reviste el carácter de título ejecutivo a tenor de lo señalado en el Código Procesal Civil 
+                            y Comercial de la Nación. En caso de que optaré por la Resolución del Contrato, las Partes 
+                            acuerdan la pérdida para la COMPRADORA de todas Sumas Abonadas a la VENDEDORA y/o cualquier 
+                            derecho que pudiera tener o alegar bajo la Presente, a modo de cláusula penal.
+                        </p>
+                        <p>
+                            <b><u>DECIMO PRIMERA:</u></b> <b>Derechos reservados a la VENDEDORA.</b>
+                        </p>
+                        <p>
+                            11.1. La COMPRADORA acepta la facultad irrevocable de la VENDEDORA, los siguientes derechos: 
+                        </p>
+                        <p>
+                            a) Efectuar modificaciones en el proyecto original siempre y cuando se respeten los términos 
+                            y condiciones establecidos en el presente Contrato. 
+                        </p>
+                        <p>
+                            b) Designar el Administrador del Consorcio en el reglamento de Propiedad Horizontal por el 
+                            plazo estipulado en el art. 2066 del CCyCN.
+                        </p>
+                        <p>
+                            c) adquirir el Inmueble en beneficio del Fideicomiso Almahue, de acuerdo a las pautas 
+                            acordadas en la Opción de Compra, abonando a la vendedora el precio acordado, con expresa 
+                            facultad para constituir hipoteca en primer grado de privilegio sobre la totalidad del 
+                            Inmueble, en garantía del pago del saldo de precio de compra, quedando también autorizada 
+                            para pactar los términos y condiciones de dicha hipoteca y de sus eventuales modificaciones 
+                        </p>
+                        <p>
+                            <b><u>DECIMO SEGUNDA:</u></b> <b>Cesión de la posición contractual.</b>
+                        </p>
+                        <p>
+                            12.1. Los derechos y obligaciones contemplados en el Presente Contrato sólo podrán ser 
+                            cedidos por la COMPRADORA de conformidad con las siguientes condiciones:
+                        </p>
+                        <p>
+                            a) No encontrarse en incumplimiento con ninguna de las obligaciones contempladas en el 
+                            Presente Contrato, haya sido intimada o no a subsanarlos. 
+                        </p>
+                        <p>
+                            b) El cesionario deberá consentir y adherir expresamente por escrito el cumplimiento 
+                            de todas y cada una de las obligaciones establecidas en el Presente Contrato. 
+                        </p>
+                        <p>
+                            c) Contar con la conformidad por escrito de la VENDEDORA al momento de suscribir el 
+                            documento que acredite la cesión de su posición contractual. 
+                        </p>
+                        <p>
+                            d) A los fines del registro de la operación y del nuevo titular de los derechos y 
+                            obligaciones contemplados en el presente Contrato, se deberá certificar en la Escribanía 
+                            designada por la VENDEDORA, las firmas de la COMPRADORA y del cesionario y entregar a la 
+                            VENDEDORA una copia certificada. Los costos Administrativos de la ejecución del contrato, 
+                            notificación, certificación de las firmas, emisión de una copia certificada y gestión de 
+                            pago de sellos, serán soportados por la COMPRADORA y/o la cesionaria y el mismo será de 
+                            hasta el 1% del valor de la cesión.
+                        </p>
+                        <p>
+                            e) Abonar a su cargo la totalidad del correspondiente Impuesto de Sellos conforme a ley, 
+                            pudiendo la Escribania designada por la VENDEDORA retener la documentación contractual que 
+                            instrumente la cesión hasta tanto se verifique el pago del mencionado impuesto.  
+                        </p>
+                        <p>
+                            12.2. En el supuesto que la cesión de la calidad de cesionaria se pretenda realizar a favor 
+                            de más de una persona en condominio, el cedente y el cesionario deberán comunicar en forma 
+                            previa a la COMPRADORA el nombre del condómino que ejercerá los derechos políticos. 
+                        </p>
+                        <p>
+                            12.3 Cualquier acto de cesión que no cumpla con las formalidades dispuestas en esta cláusula 
+                            se considerará nulo, considerándose a su vez como un incumplimiento de las condiciones pactadas 
+                            en el Presente Contrato.
+                        </p>
+                        <p>
+                            <b><u>DECIMO TERCERA:</u></b> <b>Declaraciones y garantías.</b>
+                        </p>
+                        <p>
+                            13.1. Las Partes declaran y garantizan que, 
+                        </p>
+                        <p>
+                            a) de conformidad con las leyes de Argentina, tienen la capacidad requerida para constituir el 
+                            presente Contrato, y no requieren ningún consentimiento, autorización o aprobación para la 
+                            suscripción del Presente Contrato.
+                        </p>
+                        <p>
+                            b) los datos consignados en el Presente son correctos, completos y fieles a la verdad.
+                        </p>
+                        <p>
+                            c) la celebración y el cumplimiento de este Contrato (i) no viola ninguna Ley, decreto, 
+                            reglamentación, resolución, sentencia, convenio o laudo aplicable a los mismos, (ii) ni causa 
+                            el incumplimiento de ningún contrato, acuerdo u otro instrumento del cual los Fiduciantes, 
+                            conjunta o separadamente, sean parte o por el cual estén obligados o afectados cualquiera de 
+                            sus activos, (iii) ni será causa para el establecimiento de cualquier Gravamen respecto de sus 
+                            activos, existentes o futuros, requerido por cualquier Persona distinta del Fiduciario.
+                        </p>
+                        <p>
+                            d) se obligan a indemnizarse por y frente a cualquier pérdida o daño causado por el 
+                            incumplimiento o falsedad de cualquier declaración o garantía aquí otorgada, durante todo el 
+                            período de tiempo en el que cualquier tercero puedan efectuar reclamos.
+                        </p>
+                        <p>
+                            13.2. Por su parte La COMPRADORA declara y garantiza que,
+                        </p>
+                        <p>
+                            a) no se encuentran incluidos y/o alcanzados en la “Nomina de Funciones de Personas Expuestas 
+                            políticamente” aprobada por la Unidad de Información Financiera (Resolución 11/2011 artículo 1).
+                        </p>
+                        <p>
+                            b) el origen de los fondos que aporta al presente Fideicomiso es de origen lícito y que proviene 
+                            de actividades realizadas por los mismos.
+                        </p>
+                        <p>
+                            c) han leído con anterioridad y dan por conocidas las resoluciones de la Unidad de Información 
+                            Financiera (UIF).
+                        </p>
+                        <p>
+                            d) asumen el compromiso de informar a la UIF cualquier modificación que se produzca con relación 
+                            a esta Declaración Jurada.
+                        </p>
+                        <p>
+                            e) la información suministrada es exacta en todas sus partes.
+                        </p>
+                        <p>
+                            f) tienen pleno conocimiento de que la VENDEDORA, en garantía del pago del saldo de precio de 
+                            compra, ha constituido o constituirá derecho real de hipoteca en primer grado de privilegio sobre 
+                            la totalidad del inmueble en el que se desarrollará el Emprendimiento sobre el cual se asentará 
+                            la Unidad Funcional que se le adjudicará.
+                        </p>
+                        <p>
+                            <b><u>DECIMO CUARTA:</u></b> <b>Misceláneas.</b>
+                        </p>
+                        <p>
+                            14.1. <u>Anexos</u>: Se adjunta al Presente Contrato Oferta como parte integrante de la misma, los 
+                            siguientes Anexos: 
+                        </p>
+                        <p>
+                            a) Anexo I Planta Masterplan
+                        </p>
+                        <p>
+                            b) Anexo II Memoria Descriptiva del Masterplan
+                        </p>
+                        <p>
+                            c) Anexo III Croquis de la UNIDAD FUNCIONAL.
+                        </p>
+                        <p>
+                            14.2. <u>Acuerdo único</u>: Este Contrato y sus anexos constituyen el acuerdo completo entre 
+                            la COMPRADORA y la VENDEDORA respecto de los asuntos que constituyen el objeto del mismo y 
+                            deroga todos los entendimientos previos, escritos y orales, y/o información suministrada por 
+                            intermediarios, o cualquier otra documentación de cualquier índole, que no haya sido 
+                            expresamente contemplada en el presente. 
+                        </p>
+                        <p>
+                            14.3. <u>Domicilios</u>: Las Partes constituyen domicilios especiales en los identificados en 
+                            el comienzo como “domicilio electrónico”, donde se considerarán válidas todas las 
+                            comunicaciones y/o notificaciones y/o emplazamientos judiciales o extrajudiciales que allí se 
+                            practiquen. Cualquier modificación o cambio de los domicilios especiales fijados por las PARTES, 
+                            sólo se interpretará válida a partir de la notificación fehaciente a la contraparte.
+                        </p>
+                        <p>
+                            14.4. <u>Jurisdicción y competencia</u>: En caso de existir cualquier tipo de disputas y/o 
+                            diferencias entre las PARTES con respecto a las obligaciones establecidas en el Presente 
+                            Contrato, las mismas se deberán someter ante los Tribunales Nacionales del fuero Comercial, con 
+                            asiento en la Ciudad Autónoma de Buenos Aires, con renuncia expresa a cualquier otra 
+                            jurisdicción que pudiera corresponderles.
+                        </p>
+                        <p>
+                            En prueba de conformidad y aceptación con la totalidad de las cláusulas del presente Contrato, 
+                            las Partes suscriben tres (3) ejemplares de un mismo tenor y a un solo efecto en San Isidro, 
+                            Pcia. de Buenos Aires, a los __ días del mes de ______ de 2022.-
+                        </p>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+
+</odoo>

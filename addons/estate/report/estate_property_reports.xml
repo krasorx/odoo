@@ -9,4 +9,14 @@
         <field name="binding_model_id" ref="model_property_offer"/>
         <field name="binding_type">report</field>
     </record>
+
+    <record id="report_property_contract" model="ir.actions.report">
+        <field name="name">Contrato</field>
+        <field name="model">property.offer</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">estate.report_property_contract</field>
+        <field name="report_file">estate.report_property_contract</field>
+        <field name="binding_model_id" ref="model_property_offer"/>
+        <field name="binding_type">report</field>
+    </record>
 </odoo>

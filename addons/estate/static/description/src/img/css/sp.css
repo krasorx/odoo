@@ -1,0 +1,6 @@
+.pos .sp {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 1rem;
+}

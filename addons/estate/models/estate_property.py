@@ -3,8 +3,12 @@ from num2words import num2words
 import datetime
 
 class estate_property(models.Model):
-    _name = "test.model"
+    _name = "property.lote"
     _description = "un modelo de prueba"
+
+    _sql_constraints = [
+        ('unique_property_lote', 'unique (lote)',     
+                 'No se permiten lotes duplicados')]
 
 
     name = fields.Char(string="Area", default="Backroom 1", required=True)
@@ -17,19 +21,16 @@ class estate_property(models.Model):
     last_seen = fields.Datetime(string="Ultima vez vista",default=lambda self: fields.Datetime.now(),readonly=True)
     expected_price = fields.Float(string="Precio esperado(USD)",required=True, default=10.0)
     selling_price = fields.Float(string="Precio de venta(USD)",readonly=True)
-    bedrooms = fields.Integer(string="Dormitorios",default=2)
     living_area = fields.Float(string="Area(m²)",default=100)
-    facades = fields.Integer(string="Fachadas",default=1)
-    garage = fields.Boolean(string="Garage",default=0)
-    garden = fields.Boolean(string="Jardin",default=0)
     garden_area = fields.Integer(string="Area del jardin(m²)", default=0.0)
-    garden_orientation = fields.Selection(
-        string='Orientacion del jardin', selection=[('north', 'North'), ('south', 'South'),
-         ('east', 'East'), ('west','West')], help="North south east and weast"
-         )
-    state = fields.Selection(
-        string='Estado', selection=[('nuevo', 'NUEVO'), ('offer recieved','Offer Recieved'),('offer accepted', 'Offer Accepted'),
-         ('sold', 'Sold'), ('reservado','RESERVADO'),('canceled','Canceled')],
+    state = fields.Selection(string='Estado', 
+        selection=[
+            ('nuevo', 'NUEVO'), 
+            ('oferta recibida','Oferta Recibida'),
+            ('reserva aceptada', 'Recerva Aceptada'),
+            ('vendido', 'Vendido'), 
+            ('reservado','RESERVADO'),
+            ('cancelado','Cancelado')],
          default='nuevo' ,help="New Offer Recieved Offer Accepted Sold and Cancelled")
     property_type_id = fields.Many2one("property.type", string="Tipo")
     sales_person_id = fields.Many2one('res.users', string='Vendedor', index=True, 
@@ -37,7 +38,6 @@ class estate_property(models.Model):
     tag_ids = fields.Many2many("property.tag", string="Tags")
     buyer_id = fields.Many2one('res.partner', string='Comprador')
     offer_ids = fields.One2many("property.offer","property_id" ,string="Ofertas")
-    payment_ids = fields.One2many("property.payment","property_id" ,string="Pago")
     total_area = fields.Float(string="Area total (m²)", compute="_compute_total_area")
     best_price = fields.Float(string="Mejor precio", compute="_compute_best_price", default=0.0)
     expresed_value = fields.Char(string="Valor expresado", compute="_compute_expresed_value",
@@ -93,11 +93,11 @@ class estate_property(models.Model):
         for record in self:
             record.price_discount_one_payment = record.expected_price * 0.85
     
-    
-    @api.depends("garden_area", "living_area")
+    # para ampliar en un futuro, si nos dan varias areas distintas para un mismo lote
+    @api.depends("living_area")
     def _compute_total_area(self):
         for record in self:
-            record.total_area = record.garden_area + record.living_area
+            record.total_area = record.living_area
 
     @api.depends("offer_ids","best_price")
     def _compute_best_price(self):
@@ -111,32 +111,23 @@ class estate_property(models.Model):
     def _compute_expresed_value(self):
         for record in self:
             record.expresed_value = num2words(record.expected_price, lang='es').upper() + " DOLARES ESTADOUNIDENSES"
-     
-    @api.onchange("garden")
-    def _onchange_garden(self):
-        if(self.garden):
-            self.garden_area = 10.0
-            self.garden_orientation = 'north'
-        else:
-            self.garden_area = 0.0
-            self.garden_orientation = ''
 
     def action_sell(self):
         for record in self:
-            if(record.state != 'canceled'):
-                record.state = "sold"
+            if(record.state != 'cancelado'):
+                record.state = "vendido"
                 record.selling_price = record.best_price
         return True
 
     def action_cancel(self):
         for record in self:
-            if(record.state != 'sold'):
-                record.state = "canceled"
+            if(record.state != 'vendido'):
+                record.state = "cancelado"
         return True
     
     def action_reserve(self):
         for record in self:
-            if(record.state != 'sold' & record.state != 'canceled'):
+            if(record.state != 'vendido' & record.state != 'cancelado'):
                 record.state = "RESERVADO"
         return True
 
@@ -149,7 +140,7 @@ class estate_property(models.Model):
 
     def action_accepOffer(self):
         for record in self:
-            record.state = "offer accepted"
+            record.state = "reserva aceptada"
         return True
         
 

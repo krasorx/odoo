@@ -4,7 +4,18 @@
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="o">
                 <t t-call="web.external_layout">
-                    <div class="page" style="font-family:'Arial Narrow' font-size: 24px ">
+                    <div class="page">
+                        <style type="text/css">
+                            p{  @font-face {
+                                font-family: 'PT Serif';
+                                font-style: normal;
+                                font-weight: 400;
+                                src: url(https://fonts.gstatic.com/s/ptserif/v17/EJRVQgYoZZY2vCFuvAFbzr-tdg.woff2) format('woff2');
+                                unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+                              }
+                            }
+                            p {font-size: 15px;}
+                        </style>
                         <h2>
                             <u>
                                 <b>
@@ -21,14 +32,14 @@
                             <span t-field="o.sales_person_id.street"/> de la ciudad 
                             <span t-field="o.sales_person_id.city"/> de 
                             <span t-field="o.sales_person_id.state_id"/> , constituyendo Domicilio Electrónico en su casilla de correo
-                            <span t-field="o.sales_person_id.email"/> , en adelante la "<u><b>inmobiliaria</b></u>", <b>RECIBE</b> 
-                            en este acto de parte de
+                            <span t-field="o.sales_person_id.email"/> , en adelante la "<u><b>inmobiliaria</b></u>", 
+                            <b>RECIBE</b> en este acto de parte de
                             <span t-field="o.partner_id.name"/> , D.N.I N°
-                            <span t-field="o.partner_id.vat"/> CUIT N° 
+                            <span t-field="o.partner_id.dni"/> CUIT N° 
                             <span t-field="o.partner_id.vat"/> , estado civil
                             <span t-field="o.marital_status"/> , casado con 
                             <span t-field="o.partner1_id.name"/> D.N.I N° 
-                            <span t-field="o.partner_id.vat"/> , con domicilio en la calle
+                            <span t-field="o.partner_id.dni"/> , con domicilio en la calle
                             <span t-field="o.partner_id.street"/> , de la localidad de 
                             <span t-field="o.partner_id.city"/> , Partido de 
                             <span t-field="o.partner_id.city"/> , 
@@ -36,10 +47,11 @@
                             en su casilla de correo 
                             <span t-field="o.partner_id.email"/> , Teléfono
                             <span t-field="o.partner_id.phone"/> , en un
-                            <span t-field="o.reserve_amount_percent"/>% (en adelante el "<u><b>comprador</b></u>" que conjuntamente
+                            <span t-field="o.reserve_amount_percent" t-options='{"widget": "float", "precision": 2}'/>
+                            % (en adelante el "<u><b>comprador</b></u>" que conjuntamente
                             con la Vendedora se denominan como las "<u><b>partes</b></u>"), la suma de dólares estadounidenses 
                             billete 
-                            (nosequevaaca) (
+                            <span t-esc="(o.get_expresed_value(o.price))" />(
                             <span t-field="o.price"/>U$S) en concepto de <b>RESERVA</b>
                             (en adelante la "<u>Reserva</u>" o la  "<u>Presente Reserva</u>"
                             o la "<u>Presente</u>" indistintamente), de conformidad con los términos 

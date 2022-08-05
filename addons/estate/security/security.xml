@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.module.category" id="module_category_estate">
+        <field name="name">Proyecto Reservas</field>
+        <field name="description">Categorias para reservas</field>
+    </record>
+
+    <record id="group_estate_Inmobiliaria" model="res.groups">
+        <field name="name">Inmobiliaria</field>
+        <field name="category_id" ref="module_category_estate"/>
+    </record>
+    <record id="group_estate_Desarrolladora" model="res.groups">
+        <field name="name">Desarrolladora</field>
+        <field name="category_id" ref="module_category_estate"/>
+        <field name="implied_ids" eval="[(4, ref('group_estate_Inmobiliaria'))]" />
+    </record>
+</odoo>

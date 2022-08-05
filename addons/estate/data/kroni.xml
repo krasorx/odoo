@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="ir_cron_date_reserve_update_state" model="ir.cron">
+            <field name="name">Reserva: Actualizar estado</field>
+            <field name="model_id" ref="model_property_offer" />
+            <field name="type">ir.actions.server</field>
+            <field name="state">code</field>
+            <field name="code">model.update_state_reserve()</field>
+            <field name="interval_number">5</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+        </record>
+    </data>
+</odoo>

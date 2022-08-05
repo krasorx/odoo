@@ -4,8 +4,8 @@
         
 
     <record id="view_test_model_tree" model="ir.ui.view">
-        <field name="name">estate.test.model.tree</field>
-        <field name="model">test.model</field>
+        <field name="name">estate.property.lote.tree</field>
+        <field name="model">property.lote</field>
         <field name="arch" type="xml">
             <tree string="Tests">
                 <field name="name"/>
@@ -23,8 +23,8 @@
     </record>
 
     <record id="view_test_model_form" model="ir.ui.view">
-        <field name="name">estate.test.model.form</field>
-        <field name="model">test.model</field>
+        <field name="name">estate.property.lote.form</field>
+        <field name="model">property.lote</field>
         <field name="arch" type="xml">
             <form string="Propiedad">
                 <header>
@@ -97,8 +97,8 @@
     </record>
 
     <record id="view_test_model_search" model="ir.ui.view">
-        <field name="name">estate.test.model.search</field>
-        <field name="model">test.model</field>
+        <field name="name">estate.property.lote.search</field>
+        <field name="model">property.lote</field>
         <field name="arch" type="xml">
             <search string="Tests">
                 <field name="name"/>
@@ -108,7 +108,7 @@
                 <field name="living_area"/>
                 <field name="barrio"/>
                 <filter string="Disponible" name="state" domain="['|',('state', '=', 'nuevo'), 
-                                                                ('state', '=', 'canceled')
+                                                                ('state', '=', 'cancelado')
                 ]"/>
                 <group expand="1" string="Group By">
                         <filter string="Código postal" name="postcode" context="{'group_by':'postcode', 'residual_visible':True}"/>
@@ -119,10 +119,10 @@
         </field>
     </record>
 
-    <record id="test_model_action" model="ir.actions.act_window">
+    <record id="property_lote_action" model="ir.actions.act_window">
         <field name="name">Propiedades</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">test.model</field>
+        <field name="res_model">property.lote</field>
         <field name="view_mode">tree,form</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
