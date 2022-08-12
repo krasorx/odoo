@@ -10,6 +10,8 @@
                                 font-family: 'PT Serif';
                                 font-style: normal;
                                 font-weight: 400;
+                                text-align: justify;
+                                text-justify: inter-word;
                                 src: url(https://fonts.gstatic.com/s/ptserif/v17/EJRVQgYoZZY2vCFuvAFbzr-tdg.woff2) format('woff2');
                                 unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
                               }
@@ -196,12 +198,12 @@
                             d) El saldo de DOLARES ESTADOUNIDENSES 
                             <span t-esc="(o.get_expresed_value(o.property_expected_price))"/> (U$S.
                             <span t-field="o.property_expected_price"/>), son convertidos en este acto a $
-                            <span t-esc="(o.get_expresed_value(o.property_price_balance_pesos_cac))"/> (Pesos 
+                            <span t-esc="(o.get_expresed_value(o.get_value_in_pesos((o.property_expected_price),200)))"/> (Pesos 
                             <span t-field="o.property_price_balance_pesos_cac"/>), y será abonado por la COMPRADORA a la 
                             VENDEDORA en 
                             <span t-field="o.cuotas_amount"/> cuotas mensuales y consecutivas de Pesos 
-                            __________________ ($.
-                            _________), cada una  de ellas con más el ajuste indicado 
+                            <span t-esc="(o.get_expresed_value(o.property_expected_price))"/> ($.
+                            <span t-esc="(o.get_expresed_value( o.get_value_in_pesos(o.property_expected_price,200)))"/>), cada una  de ellas con más el ajuste indicado 
                             más adelante, venciendo la primera cuota el 
                             <span t-esc="(o.get_payment_date(o.date_of_reserve,0)).day" /> de 
                             <span t-esc="(o.get_payment_date(o.date_of_reserve,0)).month" /> de

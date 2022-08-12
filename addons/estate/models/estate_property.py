@@ -1,3 +1,4 @@
+from email.policy import default
 from odoo import api,models, fields
 from num2words import num2words
 import datetime
@@ -9,7 +10,6 @@ class estate_property(models.Model):
     _sql_constraints = [
         ('unique_property_lote', 'unique (lote)',     
                  'No se permiten lotes duplicados')]
-
 
     name = fields.Char(string="Area", default="Backroom 1", required=True)
     description = fields.Text(string="Descripcion", default="Una descripcion")
@@ -24,14 +24,14 @@ class estate_property(models.Model):
     living_area = fields.Float(string="Area(m²)",default=100)
     garden_area = fields.Integer(string="Area del jardin(m²)", default=0.0)
     state = fields.Selection(string='Estado', 
-        selection=[
-            ('nuevo', 'NUEVO'), 
-            ('oferta recibida','Oferta Recibida'),
-            ('reserva aceptada', 'Recerva Aceptada'),
-            ('vendido', 'Vendido'), 
-            ('reservado','RESERVADO'),
-            ('cancelado','Cancelado')],
-         default='nuevo' ,help="New Offer Recieved Offer Accepted Sold and Cancelled")
+                            selection=[
+                                ('nuevo', 'NUEVO'), 
+                                ('oferta recibida','Oferta Recibida'),
+                                ('reserva aceptada', 'Recerva Aceptada'),
+                                ('vendido', 'Vendido'), 
+                                ('reservado','RESERVADO'),
+                                ('cancelado','Cancelado')],
+                            default='nuevo' ,help="New Offer Recieved Offer Accepted Sold and Cancelled")
     property_type_id = fields.Many2one("property.type", string="Tipo")
     sales_person_id = fields.Many2one('res.users', string='Vendedor', index=True, 
                                 tracking=True, default=lambda self: self.env.user)
@@ -51,6 +51,7 @@ class estate_property(models.Model):
     price_balance_pesos_cac = fields.Float(string="Saldo en pesos mas CAC", compute="_compute_balance_pesos_cac", readonly=True)
     price_discount_55_reserve = fields.Float(string="Descuento del 10 abonando 55 de anticipo", compute="_compute_discount_55_reserve", readonly=True)
     price_discount_one_payment = fields.Float(string="Descuento del 15 pago contado", compute="_compute_discount_one_payment", readonly=True)
+    cuotas = fields.Integer(string="Cuotas", default=30)
 
     @api.depends("expected_price", "price_reserve")
     def _compute_price_reserve(self):
@@ -143,6 +144,10 @@ class estate_property(models.Model):
             record.state = "reserva aceptada"
         return True
         
+    def action_generate_contract(self):
+        for record in self:
+            record.state = "vendido"
+        return True
 
     @api.depends('name', 'barrio', 'lote')
     def name_get(self):

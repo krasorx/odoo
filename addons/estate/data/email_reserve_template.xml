@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data noupdate="1">
+        <record id="template_email_contract" model="mail.template">
+
+            <field name="model_id" ref="estate.model_property_offer"/>
+            <field name="subject">Contrato Unidad Funcional</field>
+            <field name="email_to">luiesp27@gmail.com</field>
+            <field name="report_template" ref="base.view_apikeys"/>
+            <field name="report_name">Contrato de compra</field>
+        </record>
+
         <record id="template_email_reserve" model="mail.template">
             <field name="name">Peticion de reserva: Enviado por email</field>
             <field name="model_id" ref="estate.model_property_offer"/>
             <field name="subject">Reserva de terreno {{object.offer_number}}</field>
-            <field name="report_template" ref="property_offer" />
             <field name="email_to">luiesp27@gmail.com</field>
-            <field name="report_name">Contrato de Rerserva_${(object.offer_number)}</field>
-            <field name="lang">${object.partner_id.lang}</field>
+            <field name="report_template" ref="base.ir_property_view_search"/>
+            <field name="report_name">Contrato de Rerserva</field>
             <field name="body_html" type="html">
                 <p>
                     Aviso de reserva de propiedad con lote: 
@@ -16,5 +24,6 @@
                 </p>
             </field>
         </record>
+        
     </data>
 </odoo>

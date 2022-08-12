@@ -1,6 +1,82 @@
-.pos .sp {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin: 0 1rem;
+html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+body { margin: 0; font-size: 1em; line-height: 1.4; -webkit-tap-highlight-color: rgba(255,0,0, 0.62); background-color: #464748  !important;}
+body, button, input, select, textarea { font-family: sans-serif; }
+::-moz-selection { background: #073642; color: #fff; text-shadow: none; }
+::selection { background: #073642; color: #fff; text-shadow: none; }
+
+a:visited { color: #996dc3 !important; }
+a:hover { color: #06e !important; }
+a:focus { outline: thin dotted !important; }
+a:hover, a:active { outline: 1 !important; }
+
+.o_form_sheet{
+    background-color: #FFFAFF !important;
+}
+
+.oe_highlight_sp{
+    background-color: #92B4A7 !important;
+    border-color: #303036 !important;
+    font-size: large;
+    color: #303036 !important;
+}
+
+.oe_highlight_sp > a:hover{
+    color: aqua!important;
+    background-color: #92B4A7;
+    border-color: #303036;
+}
+
+.estate_reserves_sp{
+    background-color: #FFFAFF !important;
+    accent-color: #d7deac !important;
+    padding: 2%;
+}
+
+.estate_reserves_header{
+    background-color: #FFFAFF !important;
+}
+.oe_estate_terms {
+    flex: auto !important;
+}
+
+.nav-link {
+    background-color:#92B4A7;
+    color: #303036 !important;
+}
+
+.nav-item > a:hover {
+    color: #050401!important;
+    background-color: #BDC4A7 !important;
+  }
+
+.nav-link > .active > a {
+    color: aqua !important;
+    background-color: chartreuse !important;    
+  }
+
+.nav-item > a:hover {
+    color: rgb(65, 79, 79) !important;
+  }
+
+.o_main_navbar {
+    background-color: #2F2F2F !important;    
+}
+
+.o_action_manager {
+    background-color: #FFFAFF !important;
+}
+
+.o_form_view .o_form_statusbar > .o_statusbar_status > .o_arrow_button.btn-primary.disabled {
+    background-color:#92B4A7 !important;
+    color: #303036 !important;
+ }
+ .o_form_view .o_form_statusbar > .o_statusbar_status > .o_arrow_button.btn-primary.disabled::after {
+    border-left-color: #92B4A7 !important;
+    background-color: #FFFAFF !important;
+ }
+
+.btn-fill-primary, .btn-primary {
+    background-color:#92B4A7 !important;
+    color: #303036 !important;
+    border-color: #4c6f61;
 }

@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-
-        
-
     <record id="view_test_model_tree" model="ir.ui.view">
         <field name="name">estate.property.lote.tree</field>
         <field name="model">property.lote</field>
@@ -27,9 +24,9 @@
         <field name="model">property.lote</field>
         <field name="arch" type="xml">
             <form string="Propiedad">
-                <header>
-                    <button name="action_sell" type="object" string="VENDER" class="oe_highlight"/>
-                    <button name="action_cancel" type="object" string="CANCELAR" class="oe_highlight"/>
+                <header class="estate_reserves_header">
+                    <button name="action_sell" type="object" string="VENDER" class="oe_highlight_sp"/>
+                    <button name="action_cancel" type="object" string="CANCELAR" class="oe_highlight_sp"/>
                 </header>
                 <sheet>
                     <div>
@@ -49,12 +46,11 @@
                         <group>
                             <field name="expected_price" />
                             <field name="selling_price" />
-                            <field name="best_price" />
                         </group>
 
                     </group>
 
-                    <notebook>
+                    <notebook class="estate_reserves_sp">
                         <page string="Descripcion">
                             <group>
                                 <field name="description" />
@@ -101,14 +97,16 @@
         <field name="model">property.lote</field>
         <field name="arch" type="xml">
             <search string="Tests">
-                <field name="name"/>
-                <field name="postcode"/>
-                <field name="expected_price"/>
-                <field name="lote"/>
-                <field name="living_area"/>
-                <field name="barrio"/>
-                <filter string="Disponible" name="state" domain="['|',('state', '=', 'nuevo'), 
-                                                                ('state', '=', 'cancelado')
+                <field  name="name"/>
+                <field  name="postcode"/>
+                <field  name="expected_price"/>
+                <field  name="lote"/>
+                <field  name="living_area"/>
+                <field  name="barrio"/>
+                <filter string="Disponible" 
+                        name="state" 
+                        domain="['|',('state', '=', 'nuevo'), 
+                                     ('state', '=', 'cancelado')
                 ]"/>
                 <group expand="1" string="Group By">
                         <filter string="Código postal" name="postcode" context="{'group_by':'postcode', 'residual_visible':True}"/>

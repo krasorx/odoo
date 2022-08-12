@@ -10,6 +10,8 @@
                                 font-family: 'PT Serif';
                                 font-style: normal;
                                 font-weight: 400;
+                                text-align: justify;
+                                text-justify: inter-word;
                                 src: url(https://fonts.gstatic.com/s/ptserif/v17/EJRVQgYoZZY2vCFuvAFbzr-tdg.woff2) format('woff2');
                                 unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
                               }
@@ -187,18 +189,6 @@
                             efecto, a la fecha 
                             <span t-field="o.date_of_reserve"/>
                         </p>
-                    </div>
-                </t>
-            </t>
-        </t>
-    </template>
-
-    <template id="report_property_offerTest">
-        <t t-foreach="docs" t-as="o">
-            <t t-call="web.html_container">
-                <t t-call="web.external_layout">
-                    <div class="page">
-                        
                     </div>
                 </t>
             </t>

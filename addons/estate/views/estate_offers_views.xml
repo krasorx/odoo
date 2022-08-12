@@ -12,11 +12,26 @@
         </field>
     </record>
 
+    <record id="users_inherit" model="ir.ui.view">
+        <field name="name">users.inherit</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <field name="company_ids" position="before">
+                <field name="cbu_dolars_number"/>
+                <field name="cbu_pesos_number"/>
+                <field name="cbu_dolars"/>
+                <field name="cbu_pesos"/>
+            </field>
+        </field>
+    </record>
+
     <record id="view_estate_property_offer_tree" model="ir.ui.view">
         <field name="name">estate.property.offer.tree</field>
         <field name="model">property.offer</field>
         <field name="arch" type="xml">
             <tree string="Ofertas">
+                <field name="property_id"/>
                 <field name="property_barrio"/>
                 <field name="property_lote"/>
                 <field name="price"/>
@@ -30,82 +45,121 @@
         </field>
     </record>
 
+    
+
     <record id="view_estate_property_offer_form" model="ir.ui.view">
         <field name="name">estate.property.offer.form</field>
         <field name="model">property.offer</field>
         <field name="arch" type="xml">
             <form string="Oferta">
-                <header>
+                <header class="estate_reserves_header">
                     <button name="button_payment_method" class="oe_highlight" states="reserva" string="modo de pago" type="object" help="Ir a pago"/>
                     <button name="button_accept_offer" 
                             states="modo de pago" 
                             string="Conformar reserva" 
                             type="object" 
                             help="SOLO DESARROLLADORA"
-                            groups="estate.group_estate_Desarrolladora"/>
+                            groups="estate.group_estate_Desarrolladora"
+                            class="oe_highlight_sp"/>
                     <button name="button_cancel_offer" 
                             states="modo de pago" 
                             string="Cancelar reserva" 
                             type="object" 
                             help="SOLO DESARROLLADORA"
-                            groups="estate.group_estate_Desarrolladora"/>
-                    <button name="button_contract" 
+                            groups="estate.group_estate_Desarrolladora"
+                            class="oe_highlight_sp"/>
+                    <button name="button_reserve_send_emails" 
                             states="modo de pago" 
-                            string="Formular Contrato" 
+                            string="Enviar reserva al comprador" 
                             type="object" 
-                            help="SOLO DESARROLLADORA"
-                            groups="estate.group_estate_Desarrolladora"/>
-                    <button name="button_cancel_reserve_method" class="oe_highlight" states="nuevo" string="Cancelar" type="object" help="Cancelar reserva"/>
-                    <field  name="state" widget="statusbar" statusbar_visible="reserva,modo de pago,contrato,hecho" 
-                            options="{'clickable': '1', 'fold_field': 'fold'}"/>
+                            help="Envia un email con el PDF de reserva al comprador/compradores"
+                            groups="estate.group_estate_Desarrolladora"
+                            class="oe_highlight_sp"/>
+                    <button name="button_cancel_reserve_method" 
+                            class="oe_highlight" 
+                            states="nuevo" 
+                            string="Cancelar" 
+                            type="object" 
+                            help="Cancelar reserva"/>
+                    <button name="button_make_contract_method" 
+                            class="oe_highlight_sp" 
+                            states="contrato" 
+                            string="Generar Contrato" 
+                            type="object" 
+                            help="Genera contrato y bloquea todos los campos"/>
+                    <field  name="state" 
+                            widget="statusbar" 
+                            statusbar_visible="reserva,modo de pago,contrato,hecho" 
+                            options="{'clickable': '1', 'fold_field': 'fold'}"
+                            statusbar_colors='{"reserva":"red","modo de pago":"blue"}'/>
                 </header>
                 <sheet>
-                    <notebook>
+                    <notebook class="estate_reserves_sp">
                         <page string="Terrenos">
                             <group>
-                                <field  name="property_barrio" attrs="{'readonly' : [( 'state',  '!=', 'reserva' )]}"/>
+                                <field  name="property_barrio" 
+                                        attrs="{'readonly' : [( 'state',  '!=', 'reserva' )]}"/>
                                 <field  name="property_id" widget="grouped_view_widget" 
                                         attrs="{'readonly' : [( 'state',  '!=', 'reserva' )]}"
                                         domain="['|',('state', '=', 'nuevo'), 
-                                               ('state', '=', 'cancelado')]"/>
+                                                     ('state', '=', 'cancelado')]"/>
                                 <field  name="property_total_area"/>
                                 <field  name="property_state"/>
-                                <button name="button_reserve_method" class="oe_highlight" states="reserva" string="Reservar propiedad" type="object" help="reservar"/>
+                                <field  name="archival_info"/>  
+                                <button name="button_reserve_method" 
+                                        class="oe_highlight_sp" 
+                                        states="reserva" 
+                                        string="Reservar propiedad" 
+                                        type="object" 
+                                        help="reservar"/>
                             </group>
                         </page>
                         <page string="Modo de pago">
                             <group>
-                                <field  name="payment_method"/>
+                                <field  name="payment_method"
+                                        attrs="{'readonly' : [( 'state',  '=', 'hecho' )]}"/>
                                 <field  name="other_payment_method" 
-                                        attrs="{'invisible':[ ( 'payment_method', '!=', 'otra' ) ]}"/>
+                                        attrs="{'invisible':[ ( 'payment_method', '!=', 'otra' ) ],
+                                                'readonly' : [( 'state',  '=', 'hecho' )]}"/>
                                 <field  name="cuotas_amount"
-                                        attrs="{'readonly' : [( 'payment_method',  '!=', 'otra' )]}"/>
+                                        attrs="{'readonly' : [( 'payment_method',  '!=', 'otra' )],
+                                                'readonly' : [( 'state',  '=', 'hecho' )]}"/>
                             </group>
                         </page>
                         <page string="Precios">
                             <group>
-                                <field name="property_expected_price"/> 
-                                <field name="property_price_reserve"/> 
-                                <field name="property_price_reinforment_m9"/> 
-                                <field name="property_price_reinforment_m18"/> 
-                                <field name="property_price_balance"/> 
-                                <field name="property_price_balance_usd"/> 
-                                <field name="property_price_balance_pesos_cac"/> 
-                                <field name="property_price_discount_55_reserve"/> 
-                                <field name="property_price_discount_one_payment"/> 
+                                <field  name="property_expected_price"/> 
+                                <field  name="property_price_reserve"/> 
+                                <field  name="property_price_reinforment_m9"/> 
+                                <field  name="property_price_reinforment_m18"/> 
+                                <field  name="property_price_balance"/> 
+                                <field  name="property_price_balance_usd"/> 
+                                <field  name="property_price_balance_pesos_cac"/> 
+                                <field  name="property_price_discount_55_reserve"/> 
+                                <field  name="property_price_discount_one_payment"/> 
                             </group>
                         </page>
-                        <page string="Contrato" attrs="{'invisible' : [( 'state',  '!=', 'contrato' )]}">
+                        <page string="Contrato" 
+                              attrs="{'invisible':['|', ('state','=','reserva'), ('state','=','modo de pago')]}">
                             <group>
-                                <field name="cbu_dolars_number"/>
-                                <field name="cbu_dolars"/>
-                                <field name="cbu_pesos_number"/>
-                                <field name="cbu_pesos"/>
+                                <field  name="cbu_dolars_number"
+                                        attrs="{'readonly' : [( 'state',  '=', 'hecho' )]}"/>
+                                <field  name="cbu_dolars"
+                                        attrs="{'readonly' : [( 'state',  '=', 'hecho' )]}"/>
+                                <field  name="cbu_pesos_number"
+                                        attrs="{'readonly' : [( 'state',  '=', 'hecho' )]}"/>
+                                <field  name="cbu_pesos"
+                                        attrs="{'readonly' : [( 'state',  '=', 'hecho' )]}"/>
+                            </group>
+                            <group>
+                                <field  name="price_total_1"
+                                        attrs="{'readonly' : [( 'state',  '=', 'hecho' )]}"/>
+                                <field  name="price_reserve_1"
+                                        attrs="{'readonly' : [( 'state',  '=', 'hecho' )]}"/>
                             </group>
                         </page>
                     </notebook>
-                    <group>
-                        
+                    <group class="estate_reserves_sp">
                         <group> 
                             <field  name="price" 
                                     attrs="{'readonly' : [( 'state',  '!=', 'reserva' )]}"/>
@@ -135,7 +189,6 @@
                             <field  name="partner3_id" 
                                     attrs="{'invisible': [('marital2_status',  '!=', 'casado')],
                                             'readonly' : [( 'state',  '!=', 'reserva' )]}"/>
-
                             <field  name="partner4_id"
                                     attrs="{'readonly' : [( 'state',  '!=', 'reserva' )]}"/>
                             <field  name="marital3_status"
@@ -150,7 +203,6 @@
                             <field  name="partner7_id" 
                                     attrs="{'invisible': [('marital2_status',  '!=', 'casado')],
                                             'readonly' : [( 'state',  '!=', 'reserva' )]}"/>
-                            
                         </group>
                         
                     </group>
@@ -180,7 +232,8 @@
                 <field name="sales_person_id"/>
                 <field name="offer_number"/>
                 <field name="property_id"/>
-                <filter string="Disponible" name="status" domain="[('status', '=', 'pendiente')]"/>
+                <filter string="Disponible" name="status" domain="['|',('status', '=', 'pendiente'),
+                                                                       ('status', '=', 'accepted')]"/>
                 <group expand="1" string="Group By">
                         <filter string="Inmobiliaria" name="sales_person_id" context="{'group_by':'sales_person_id', 'residual_visible':True}"/>
                         <filter string="Barrio" name="property_barrio" context="{'group_by':'property_barrio', 'residual_visible':True}"/>
